@@ -30,6 +30,7 @@
     overflow-x: hidden;
   }
   
+  /* HEADER */
   header {
     position: fixed;
     top: 0;
@@ -116,6 +117,38 @@
   
   nav a:hover::after { width: 100%; }
   
+  /* Botón menú hamburguesa (oculto en desktop) */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--text);
+    margin: 6px 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+  
+  /* HERO */
   .hero {
     max-width: 1400px;
     margin: 0 auto;
@@ -194,6 +227,7 @@
     font-weight: 400;
   }
   
+  /* MAIN */
   main {
     max-width: 1400px;
     margin: 0 auto;
@@ -237,7 +271,7 @@
     color: var(--text-dim);
   }
   
-  /* GRID Social Media */
+  /* GRID Social Media — composición editorial con proporciones reales */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -252,12 +286,26 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
+  /* PROPORCIONES REALES POR VIDEO */
+  /* Cuadrado 1:1 — 4 columnas */
   .ratio-1x1 { grid-column: span 4; aspect-ratio: 1 / 1; }
+  
+  /* Vertical 9:16 (story) — 3 columnas para que no quede gigante */
   .ratio-9x16 { grid-column: span 3; aspect-ratio: 9 / 16; }
+  
+  /* Vertical 4:5 (post) — 4 columnas */
   .ratio-4x5 { grid-column: span 4; aspect-ratio: 4 / 5; }
+  
+  /* Cuadrado destacado más grande — 6 columnas */
   .ratio-1x1-big { grid-column: span 6; aspect-ratio: 1 / 1; }
+  
+  /* Imagen cuadrada — 4 columnas */
   .ratio-img { grid-column: span 4; aspect-ratio: 1 / 1; }
+  
+  /* Imagen ancha — 6 columnas */
   .ratio-img-wide { grid-column: span 6; aspect-ratio: 4 / 3; }
+  
+  /* Horizontal 16:9 — 6 columnas */
   .ratio-16x9 { grid-column: span 6; aspect-ratio: 16 / 9; }
   
   /* Badge "Made with A.I." */
@@ -381,7 +429,7 @@
     opacity: 0.9;
   }
   
-  /* ABOUT */
+  /* SECCIÓN ABOUT */
   .about-section {
     margin-top: 140px;
     padding-top: 80px;
@@ -422,7 +470,9 @@
     font-weight: 300;
   }
   
-  .about-content p { margin-bottom: 24px; }
+  .about-content p {
+    margin-bottom: 24px;
+  }
   
   .about-content strong {
     font-weight: 500;
@@ -431,56 +481,7 @@
     font-family: var(--serif);
   }
   
-  /* BRAND ANIMATION */
-  .brand-animation-section {
-    margin-top: 140px;
-    padding-top: 80px;
-    border-top: 1px solid var(--border);
-  }
-  
-  .vimeo-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 24px;
-  }
-  
-  .vimeo-featured { grid-column: span 3; }
-  .vimeo-regular { grid-column: span 2; }
-  
-  .vimeo-item {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    background: var(--bg-alt);
-    overflow: hidden;
-  }
-  
-  .vimeo-item iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
-  
-  .vimeo-caption {
-    margin-top: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-  
-  .vimeo-title {
-    font-family: var(--serif);
-    font-size: 16px;
-    font-weight: 400;
-  }
-  
-  .vimeo-year {
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 1px;
-  }
-  
-  /* A.I. */
+  /* SECCIÓN A.I. — Showcase cinematográfico */
   .ai-section {
     margin-top: 140px;
     padding-top: 80px;
@@ -496,6 +497,7 @@
     font-weight: 300;
   }
   
+  /* Hero video destacado — 16:9 cinematográfico */
   .ai-hero {
     position: relative;
     width: 100%;
@@ -563,7 +565,9 @@
     transition: transform 0.5s ease;
   }
   
-  .ai-hero:hover .ai-hero-bottom { transform: translateY(-6px); }
+  .ai-hero:hover .ai-hero-bottom {
+    transform: translateY(-6px);
+  }
   
   .ai-hero-title {
     font-family: var(--serif);
@@ -595,6 +599,7 @@
     opacity: 1;
   }
   
+  /* Etiqueta del divisor antes de la galería */
   .ai-gallery-label {
     display: flex;
     align-items: center;
@@ -616,6 +621,7 @@
     font-weight: 500;
   }
   
+  /* Grid de galería - todos 16:9 */
   .ai-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -681,7 +687,9 @@
     opacity: 0.7;
   }
   
-  .ai-grid-info { width: 100%; }
+  .ai-grid-info {
+    width: 100%;
+  }
   
   .ai-grid-title {
     font-family: var(--serif);
@@ -714,6 +722,53 @@
     z-index: 3;
     letter-spacing: 1px;
     opacity: 0.85;
+  }
+  .brand-animation-section {
+    margin-top: 140px;
+    padding-top: 80px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .vimeo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+  
+  .vimeo-featured { grid-column: span 3; }
+  .vimeo-regular { grid-column: span 2; }
+  
+  .vimeo-item {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-alt);
+    overflow: hidden;
+  }
+  
+  .vimeo-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  
+  .vimeo-caption {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  
+  .vimeo-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .vimeo-year {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
   }
   
   /* MODAL */
@@ -766,7 +821,7 @@
   
   .close-modal:hover { opacity: 1; border-color: white; }
   
-  /* YOU MAY ALSO LIKE */
+  /* SECCIÓN FINAL */
   .may-like-section {
     margin-top: 140px;
     padding-top: 60px;
@@ -814,6 +869,7 @@
     letter-spacing: 1px;
   }
   
+  /* FOOTER */
   footer {
     padding: 50px 60px;
     border-top: 1px solid var(--border);
@@ -827,7 +883,10 @@
     gap: 20px;
   }
   
-  .footer-social { display: flex; gap: 30px; }
+  .footer-social {
+    display: flex;
+    gap: 30px;
+  }
   
   .footer-social a {
     color: var(--text-dim);
@@ -851,6 +910,49 @@
   /* RESPONSIVE */
   @media (max-width: 1000px) {
     header { padding: 18px 30px; }
+    
+    /* Mostrar menú hamburguesa */
+    .menu-toggle { display: block; }
+    
+    /* Esconder el menú normal y convertirlo en overlay full screen */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 15, 15, 0.98);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1001;
+    }
+    
+    nav.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      gap: 30px;
+      text-align: center;
+    }
+    
+    nav a {
+      font-size: 22px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      text-transform: none;
+    }
+    
     .hero { padding: 140px 30px 80px; }
     main { padding: 0 30px 80px; }
     .projects-grid { gap: 16px; }
@@ -868,29 +970,28 @@
     .ai-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .ai-hero-overlay { padding: 35px; }
     .ai-hero-title { font-size: clamp(28px, 5vw, 40px); }
-    nav ul { gap: 22px; }
     .may-like-grid { grid-template-columns: repeat(2, 1fr); }
     footer { padding: 40px 30px; }
   }
   
   @media (max-width: 600px) {
     header { padding: 14px 20px; }
-    .logo-img { height: 36px; }
-    .logo-name { font-size: 15px; }
-    .logo-role { font-size: 9px; letter-spacing: 1.8px; }
+    .logo-img { height: 32px; }
+    .logo-name { font-size: 14px; }
+    .logo-role { font-size: 8px; letter-spacing: 1.5px; margin-top: 2px; }
+    .logo-container { gap: 10px; }
     .hero { padding: 120px 20px 60px; }
     main { padding: 0 20px 60px; }
     .hero-meta { gap: 25px; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-item { grid-column: span 1 !important; }
     .ratio-1x1, .ratio-img, .ratio-1x1-big { aspect-ratio: 1/1 !important; }
-    .ratio-9x16 { aspect-ratio: 9/16 !important; }
+    .ratio-9x16 { aspect-ratio: 9/16 !important; grid-column: span 1 !important; }
     .ratio-4x5 { aspect-ratio: 4/5 !important; }
     .ratio-img-wide { aspect-ratio: 4/3 !important; }
     .ratio-16x9 { aspect-ratio: 16/9 !important; }
     .may-like-grid { grid-template-columns: 1fr; }
-    nav ul { gap: 14px; }
-    nav a { font-size: 10px; letter-spacing: 1px; }
+    nav a { font-size: 20px; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
     .section-title { font-size: 28px; }
     .about-content { font-size: 16px; }
@@ -905,13 +1006,20 @@
 
 <header>
   <a href="#" class="logo-container">
-    <img src="logo.svg" alt="Eduardo Gochicoa" class="logo-svg" onerror="this.style.display='none'">
+    <img src="logo.svg" alt="Eduardo Gochicoa" class="logo-img" onerror="this.style.display='none'">
     <div class="logo-text">
       <span class="logo-name">Eduardo Gochicoa</span>
       <span class="logo-role">Motion Graphics</span>
     </div>
   </a>
-  <nav>
+  
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <nav id="mainNav">
     <ul>
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
@@ -922,6 +1030,7 @@
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">
     <div class="hero-eyebrow-line"></div>
@@ -952,17 +1061,25 @@
 
 <main id="work">
   
+  <!-- SECCIÓN SOCIAL MEDIA -->
   <div class="section-header">
     <div class="section-header-left">
       <span class="section-number">— Selected Work 01</span>
       <h2 class="section-title">Social Media</h2>
     </div>
-    <span class="section-count">14 / Pieces</span>
+    <span class="section-count">13 / Pieces</span>
   </div>
   
   <div class="projects-grid">
     
-    <!-- FILA 1: cuadrado grande + 2 verticales 9:16 -->
+    <!-- ============================================ -->
+    <!-- FILA 1: dos verticales 9:16 + un cuadrado    -->
+    <!-- (3 + 3 + 4 = 10 cols → centrado visualmente) -->
+    <!-- Mejor: cuadrado grande + dos verticales      -->
+    <!-- (6 + 3 + 3 = 12)                             -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-01 (1:1) destacado grande -->
     <div class="project-item ratio-1x1-big" data-type="video" data-src="videos/proyecto-01.mp4">
       <span class="project-label">01</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -980,6 +1097,7 @@
       </div>
     </div>
     
+    <!-- proyecto-03 (9:16) -->
     <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-03.mp4">
       <span class="project-label">02</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -997,6 +1115,7 @@
       </div>
     </div>
     
+    <!-- proyecto-04 (9:16) -->
     <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-04.mp4">
       <span class="project-label">03</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1014,7 +1133,11 @@
       </div>
     </div>
     
-    <!-- FILA 2: tres cuadrados -->
+    <!-- ============================================ -->
+    <!-- FILA 2: tres cuadrados (4+4+4=12)            -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-02 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-02.mp4">
       <span class="project-label">04</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1032,6 +1155,7 @@
       </div>
     </div>
     
+    <!-- proyecto-05 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-05.mp4">
       <span class="project-label">05</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1049,6 +1173,7 @@
       </div>
     </div>
     
+    <!-- proyecto-08 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-08.mp4">
       <span class="project-label">06</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1066,7 +1191,12 @@
       </div>
     </div>
     
-    <!-- FILA 3: 4:5 + 9:16 -->
+    <!-- ============================================ -->
+    <!-- FILA 3: 4:5 + 9:16 (proyecto-06 + 07)        -->
+    <!-- AQUÍ irán los nuevos videos con IA           -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-06 (4:5) -->
     <div class="project-item ratio-4x5" data-type="video" data-src="videos/proyecto-06.mp4">
       <span class="project-label">07</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1084,6 +1214,7 @@
       </div>
     </div>
     
+    <!-- proyecto-07 (9:16) -->
     <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-07.mp4">
       <span class="project-label">08</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1101,7 +1232,13 @@
       </div>
     </div>
     
-    <!-- FILA AI: 2 videos 16:9 con badge "Made with A.I." -->
+    <!-- ============================================ -->
+    <!-- FILA AI: 3 videos hechos con apoyo de IA     -->
+    <!-- proyecto-09 (16:9) + proyecto-10 (16:9)      -->
+    <!-- y debajo proyecto-11 (9:16) acompañado       -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-09 (16:9) Made with A.I. -->
     <div class="project-item ratio-16x9" data-type="video" data-src="videos/proyecto-09.mp4">
       <span class="project-label">09</span>
       <span class="ai-badge">Made with A.I.</span>
@@ -1120,6 +1257,7 @@
       </div>
     </div>
     
+    <!-- proyecto-10 (16:9) Made with A.I. -->
     <div class="project-item ratio-16x9" data-type="video" data-src="videos/proyecto-10.mp4">
       <span class="project-label">10</span>
       <span class="ai-badge">Made with A.I.</span>
@@ -1138,7 +1276,12 @@
       </div>
     </div>
     
-    <!-- FILA: proyecto-11 (9:16) centrado -->
+    <!-- ============================================ -->
+    <!-- FILA: proyecto-11 (9:16) Made with A.I.      -->
+    <!-- Centrado con dos espacios laterales          -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-11 (9:16) Made with A.I. -->
     <div class="project-item ratio-9x16" style="grid-column-start: 5;" data-type="video" data-src="videos/proyecto-11.mp4">
       <span class="project-label">11</span>
       <span class="ai-badge">Made with A.I.</span>
@@ -1157,7 +1300,12 @@
       </div>
     </div>
     
-    <!-- FILA FINAL: 3 imágenes de la misma marca -->
+    <!-- ============================================ -->
+    <!-- FILA FINAL: Las 3 imágenes en una sola fila  -->
+    <!-- (misma marca - 4+4+4 = 12 columnas)          -->
+    <!-- ============================================ -->
+    
+    <!-- imagen-01 -->
     <div class="project-item ratio-img" data-type="image" data-src="images/imagen-01.png">
       <span class="project-label">12</span>
       <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
@@ -1173,6 +1321,7 @@
       </div>
     </div>
     
+    <!-- imagen-02 -->
     <div class="project-item ratio-img" data-type="image" data-src="images/imagen-02.png">
       <span class="project-label">13</span>
       <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
@@ -1188,6 +1337,7 @@
       </div>
     </div>
     
+    <!-- imagen-03 -->
     <div class="project-item ratio-img" data-type="image" data-src="images/imagen-03.png">
       <span class="project-label">14</span>
       <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
@@ -1205,7 +1355,7 @@
     
   </div>
   
-  <!-- ABOUT -->
+  <!-- SECCIÓN ABOUT -->
   <section id="about" class="about-section">
     <div class="about-label">
       <span class="about-label-num">— 02</span>
@@ -1224,7 +1374,7 @@
     </div>
   </section>
   
-  <!-- BRAND ANIMATION -->
+  <!-- SECCIÓN BRAND ANIMATION (Vimeo) -->
   <section id="brand-animation" class="brand-animation-section">
     <div class="section-header">
       <div class="section-header-left">
@@ -1236,9 +1386,12 @@
     
     <div class="vimeo-grid">
       
+      <!-- Featured: 2 videos grandes arriba -->
       <div class="vimeo-featured">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/1179090531" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/1179090531" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Brand Animation 01</span>
@@ -1248,7 +1401,9 @@
       
       <div class="vimeo-featured">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/1181323472" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/1181323472" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Brand Animation 02</span>
@@ -1256,9 +1411,12 @@
         </div>
       </div>
       
+      <!-- Regulares: 4 videos medianos abajo -->
       <div class="vimeo-regular">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/179088471" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/179088471" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Brand Animation 03</span>
@@ -1268,7 +1426,9 @@
       
       <div class="vimeo-regular">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/859255686" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/859255686" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Brand Animation 04</span>
@@ -1278,7 +1438,9 @@
       
       <div class="vimeo-regular">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/880368199" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/880368199" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Brand Animation 05</span>
@@ -1286,9 +1448,12 @@
         </div>
       </div>
       
+      <!-- Video 6 en placeholder: ocupa 2 columnas centrado en su fila -->
       <div class="vimeo-regular" style="grid-column-start: 3;">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/560683479" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/560683479" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Brand Animation 06</span>
@@ -1299,7 +1464,7 @@
     </div>
   </section>
   
-  <!-- A.I. -->
+  <!-- SECCIÓN A.I. -->
   <section id="ai" class="ai-section">
     <div class="section-header">
       <div class="section-header-left">
@@ -1313,6 +1478,7 @@
       Exploring the intersection of artificial intelligence and visual storytelling. A collection of experimental pieces created with generative AI tools, pushing the boundaries between human creativity and machine learning.
     </p>
     
+    <!-- HERO video destacado 16:9 -->
     <div class="ai-hero" data-type="video" data-src="videos/ai-01.mp4">
       <video autoplay muted loop playsinline preload="metadata">
         <source src="videos/ai-01.mp4" type="video/mp4">
@@ -1332,11 +1498,13 @@
       </div>
     </div>
     
+    <!-- Divisor de galería -->
     <div class="ai-gallery-label">
       <span class="ai-gallery-text">— More experiments</span>
       <div class="ai-gallery-line"></div>
     </div>
     
+    <!-- Grid 3x con todos los videos en 16:9 -->
     <div class="ai-grid">
       
       <div class="ai-grid-item" data-type="video" data-src="videos/ai-02.mp4">
@@ -1461,6 +1629,7 @@
     </div>
   </section>
   
+  <!-- SECCIÓN FINAL -->
   <section class="may-like-section">
     <h3 class="section-subtitle">— You may also like</h3>
     <div class="may-like-grid">
@@ -1511,6 +1680,7 @@
 </footer>
 
 <script>
+  // Aplica el comportamiento de modal a items normales y a items de AI
   document.querySelectorAll('.project-item[data-src], .ai-hero[data-src], .ai-grid-item[data-src]').forEach(item => {
     item.addEventListener('click', () => {
       const type = item.dataset.type;
@@ -1543,12 +1713,32 @@
     if (e.key === 'Escape') closeMedia();
   });
   
+  // Smooth scroll para los links del menú
+  // Menú hamburguesa móvil
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+  
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    mainNav.classList.toggle('active');
+    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+  });
+  
+  // Cerrar menú al hacer click en un enlace
   document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
+      
+      // Cerrar menú móvil si está abierto
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      document.body.style.overflow = '';
+      
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
       }
     });
   });
