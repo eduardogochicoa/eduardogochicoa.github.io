@@ -274,6 +274,37 @@
   /* Imagen ancha — 6 columnas */
   .ratio-img-wide { grid-column: span 6; aspect-ratio: 4 / 3; }
   
+  /* Horizontal 16:9 — 6 columnas */
+  .ratio-16x9 { grid-column: span 6; aspect-ratio: 16 / 9; }
+  
+  /* Badge "Made with A.I." */
+  .ai-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--serif);
+    font-size: 10px;
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(212, 165, 116, 0.35);
+  }
+  
+  .ai-badge::before {
+    content: '✦';
+    font-style: normal;
+    font-size: 10px;
+  }
+  
   .project-item:hover {
     transform: translateY(-4px);
   }
@@ -856,6 +887,7 @@
     .ratio-4x5 { grid-column: span 6; }
     .ratio-1x1-big { grid-column: span 12; }
     .ratio-img-wide { grid-column: span 12; }
+    .ratio-16x9 { grid-column: span 12; }
     .about-section { grid-template-columns: 1fr; gap: 30px; }
     .about-label { position: static; }
     .about-label-title { font-size: 32px; }
@@ -883,6 +915,7 @@
     .ratio-9x16 { aspect-ratio: 9/16 !important; }
     .ratio-4x5 { aspect-ratio: 4/5 !important; }
     .ratio-img-wide { aspect-ratio: 4/3 !important; }
+    .ratio-16x9 { aspect-ratio: 16/9 !important; }
     .may-like-grid { grid-template-columns: 1fr; }
     nav ul { gap: 14px; }
     nav a { font-size: 10px; letter-spacing: 1px; }
@@ -954,7 +987,7 @@
       <span class="section-number">— Selected Work 01</span>
       <h2 class="section-title">Social Media</h2>
     </div>
-    <span class="section-count">11 / Pieces</span>
+    <span class="section-count">14 / Pieces</span>
   </div>
   
   <div class="projects-grid">
@@ -1079,9 +1112,8 @@
     </div>
     
     <!-- ============================================ -->
-    <!-- FILA 3: imagen ancha + vertical 9:16         -->
-    <!-- 6 + 3 = 9 — completamos con imagen cuadrada  -->
-    <!-- Mejor: 4:5 + 9:16 + imagen 1:1               -->
+    <!-- FILA 3: 4:5 + 9:16 (proyecto-06 + 07)        -->
+    <!-- AQUÍ irán los nuevos videos con IA           -->
     <!-- ============================================ -->
     
     <!-- proyecto-06 (4:5) -->
@@ -1120,54 +1152,121 @@
       </div>
     </div>
     
-    <!-- imagen-01 (1:1) - relleno de fila -->
-    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-01.png">
+    <!-- ============================================ -->
+    <!-- FILA AI: 3 videos hechos con apoyo de IA     -->
+    <!-- proyecto-09 (16:9) + proyecto-10 (16:9)      -->
+    <!-- y debajo proyecto-11 (9:16) acompañado       -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-09 (16:9) Made with A.I. -->
+    <div class="project-item ratio-16x9" data-type="video" data-src="videos/proyecto-09.mp4">
       <span class="project-label">09</span>
+      <span class="ai-badge">Made with A.I.</span>
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-09.mp4" type="video/mp4">
+      </video>
+      <div class="project-overlay">
+        <span class="project-number">— Project 09 · A.I.</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">AI-Powered Campaign</div>
+            <div class="project-desc">Generative · Motion</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- proyecto-10 (16:9) Made with A.I. -->
+    <div class="project-item ratio-16x9" data-type="video" data-src="videos/proyecto-10.mp4">
+      <span class="project-label">10</span>
+      <span class="ai-badge">Made with A.I.</span>
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-10.mp4" type="video/mp4">
+      </video>
+      <div class="project-overlay">
+        <span class="project-number">— Project 10 · A.I.</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">AI Visual Story</div>
+            <div class="project-desc">Generative · Brand</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- FILA: proyecto-11 (9:16) Made with A.I.      -->
+    <!-- Centrado con dos espacios laterales          -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-11 (9:16) Made with A.I. -->
+    <div class="project-item ratio-9x16" style="grid-column-start: 5;" data-type="video" data-src="videos/proyecto-11.mp4">
+      <span class="project-label">11</span>
+      <span class="ai-badge">Made with A.I.</span>
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-11.mp4" type="video/mp4">
+      </video>
+      <div class="project-overlay">
+        <span class="project-number">— Project 11 · A.I.</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">AI Vertical Reel</div>
+            <div class="project-desc">Generative · Stories</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- FILA FINAL: Las 3 imágenes en una sola fila  -->
+    <!-- (misma marca - 4+4+4 = 12 columnas)          -->
+    <!-- ============================================ -->
+    
+    <!-- imagen-01 -->
+    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-01.png">
+      <span class="project-label">12</span>
       <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
       <div class="project-overlay">
-        <span class="project-number">— Project 09</span>
+        <span class="project-number">— Project 12</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Editorial</div>
-            <div class="project-desc">Static Design</div>
+            <div class="project-title">Brand Identity</div>
+            <div class="project-desc">Visual System</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- ============================================ -->
-    <!-- FILA 4: imagen ancha + imagen cuadrada       -->
-    <!-- 6 + 4 = 10 — agregamos vertical para 12      -->
-    <!-- Mejor: 2 imágenes 6+6                        -->
-    <!-- ============================================ -->
-    
-    <!-- imagen-02 ancha 6 columnas -->
-    <div class="project-item ratio-img-wide" data-type="image" data-src="images/imagen-02.png">
-      <span class="project-label">10</span>
+    <!-- imagen-02 -->
+    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-02.png">
+      <span class="project-label">13</span>
       <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
       <div class="project-overlay">
-        <span class="project-number">— Project 10</span>
+        <span class="project-number">— Project 13</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Visual Identity</div>
-            <div class="project-desc">Branding</div>
+            <div class="project-title">Brand Identity</div>
+            <div class="project-desc">Visual System</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- imagen-03 ancha 6 columnas -->
-    <div class="project-item ratio-img-wide" data-type="image" data-src="images/imagen-03.png">
-      <span class="project-label">11</span>
+    <!-- imagen-03 -->
+    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-03.png">
+      <span class="project-label">14</span>
       <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
       <div class="project-overlay">
-        <span class="project-number">— Project 11</span>
+        <span class="project-number">— Project 14</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Graphic System</div>
-            <div class="project-desc">Print · Digital</div>
+            <div class="project-title">Brand Identity</div>
+            <div class="project-desc">Visual System</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
