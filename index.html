@@ -3,101 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eduardo Gochicoa - Social Media</title>
+<title>Eduardo Gochicoa — Social Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #191919;
-    color: #f5f5f5;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+  :root {
+    --bg: #0f0f0f;
+    --bg-alt: #1a1a1a;
+    --text: #f0ede8;
+    --text-dim: rgba(240, 237, 232, 0.55);
+    --accent: #d4a574;
+    --border: rgba(240, 237, 232, 0.08);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
   }
   
+  body {
+    font-family: var(--sans);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  
+  /* HEADER editorial */
   header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(25, 25, 25, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
-    padding: 25px 60px;
+    padding: 22px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--border);
   }
   
-  .logo {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #f5f5f5;
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     text-decoration: none;
+    color: var(--text);
     transition: opacity 0.3s ease;
   }
   
-  .logo:hover { opacity: 0.7; }
+  .logo-container:hover { opacity: 0.7; }
+  
+  .logo-img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  
+  .logo-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+  }
+  
+  .logo-role {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
   
   nav ul {
     display: flex;
     list-style: none;
-    gap: 40px;
+    gap: 42px;
   }
   
   nav a {
-    color: #f5f5f5;
+    color: var(--text);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
-    letter-spacing: 0.3px;
-    transition: opacity 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
   }
   
-  nav a:hover { opacity: 0.6; }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.4s ease;
+  }
   
-  main {
-    padding-top: 120px;
+  nav a:hover::after { width: 100%; }
+  
+  /* HERO editorial */
+  .hero {
     max-width: 1400px;
     margin: 0 auto;
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-bottom: 80px;
+    padding: 180px 60px 100px;
   }
   
-  .page-title {
-    font-size: 42px;
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-eyebrow-line {
+    width: 50px;
+    height: 1px;
+    background: var(--accent);
+  }
+  
+  .hero-eyebrow-text {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+  
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(48px, 8vw, 110px);
     font-weight: 300;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 35px;
+  }
+  
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  
+  .hero-intro {
+    max-width: 580px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+  
+  .hero-meta {
+    margin-top: 60px;
+    display: flex;
+    gap: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hero-meta-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  
+  .hero-meta-value {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  /* GRID editorial — asimétrico */
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px 120px;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 60px;
-    letter-spacing: -0.5px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .section-number {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  
+  .section-count {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
   }
   
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 80px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px 24px;
   }
   
   .project-item {
     position: relative;
-    aspect-ratio: 1 / 1;
     overflow: hidden;
-    background-color: #222;
+    background-color: var(--bg-alt);
     cursor: pointer;
-    border-radius: 4px;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  .project-item.wide {
-    grid-column: span 2;
-    aspect-ratio: 2 / 1;
-  }
+  /* Layouts diversos para look editorial */
+  .project-item.size-1 { grid-column: span 4; aspect-ratio: 4 / 5; }
+  .project-item.size-2 { grid-column: span 8; aspect-ratio: 16 / 9; }
+  .project-item.size-3 { grid-column: span 5; aspect-ratio: 1 / 1; }
+  .project-item.size-4 { grid-column: span 7; aspect-ratio: 16 / 11; }
+  .project-item.size-5 { grid-column: span 6; aspect-ratio: 4 / 3; }
+  .project-item.size-6 { grid-column: span 6; aspect-ratio: 4 / 3; }
+  .project-item.size-7 { grid-column: span 12; aspect-ratio: 21 / 9; }
+  .project-item.size-8 { grid-column: span 4; aspect-ratio: 3 / 4; }
   
   .project-item:hover {
-    transform: scale(0.98);
+    transform: translateY(-4px);
   }
   
   .project-video,
@@ -105,48 +258,96 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
     display: block;
   }
   
   .project-item:hover .project-video,
   .project-item:hover .project-image {
-    transform: scale(1.05);
+    transform: scale(1.04);
+    filter: brightness(0.7);
   }
   
   .project-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 25px;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    inset: 0;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
     z-index: 2;
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%);
   }
   
   .project-item:hover .project-overlay {
     opacity: 1;
   }
   
+  .project-number {
+    font-family: var(--serif);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+  
+  .project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  
   .project-title {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 4px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
   }
   
   .project-desc {
-    font-size: 13px;
-    opacity: 0.8;
-    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
   }
   
+  .project-arrow {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+  
+  /* Label persistente: número arriba en cada item */
+  .project-label {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    font-family: var(--serif);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--text);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    padding: 5px 12px;
+    border-radius: 100px;
+    z-index: 3;
+    letter-spacing: 1px;
+    opacity: 0.9;
+  }
+  
+  /* MODAL */
   .video-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.95);
+    background: rgba(0,0,0,0.97);
     z-index: 2000;
     display: none;
     align-items: center;
@@ -158,7 +359,7 @@
   
   .video-modal-content {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     position: relative;
   }
   
@@ -173,222 +374,420 @@
   
   .close-modal {
     position: absolute;
-    top: -50px;
+    top: -55px;
     right: 0;
     background: none;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
     color: white;
-    font-size: 32px;
+    font-size: 18px;
     cursor: pointer;
     opacity: 0.7;
-    transition: opacity 0.3s;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .close-modal:hover { opacity: 1; }
+  .close-modal:hover { opacity: 1; border-color: white; }
   
+  /* SECCIÓN FINAL */
   .may-like-section {
-    margin-top: 100px;
+    margin-top: 140px;
     padding-top: 60px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--border);
   }
   
   .section-subtitle {
-    font-size: 18px;
+    font-family: var(--serif);
+    font-size: 24px;
     font-weight: 400;
-    margin-bottom: 30px;
-    opacity: 0.8;
+    margin-bottom: 35px;
+    font-style: italic;
+    color: var(--text-dim);
   }
   
-  .may-like-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+  .may-like-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
   }
   
-  .may-like-links a {
-    color: #f5f5f5;
+  .may-like-item {
+    background: var(--bg);
+    padding: 30px 24px;
     text-decoration: none;
-    font-size: 14px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    color: var(--text);
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  .may-like-links a:hover { opacity: 1; }
+  .may-like-item:hover {
+    background: var(--bg-alt);
+  }
   
-  .may-like-links .year {
+  .may-like-item-text {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .may-like-item-year {
     font-size: 11px;
-    opacity: 0.5;
-    margin-left: 4px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
   }
   
+  /* FOOTER */
   footer {
-    padding: 40px 60px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 50px 60px;
+    border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    opacity: 0.5;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
   }
+  
+  .footer-social {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .footer-social a {
+    color: var(--text-dim);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-social a:hover { color: var(--accent); }
   
   .back-top {
-    color: #f5f5f5;
+    color: var(--text);
     text-decoration: none;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
   }
   
-  @media (max-width: 900px) {
-    header { padding: 20px 30px; }
-    main { padding-left: 30px; padding-right: 30px; }
-    .page-title { font-size: 32px; }
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    .project-item.wide { grid-column: span 2; }
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    header { padding: 18px 30px; }
+    .hero { padding: 140px 30px 80px; }
+    main { padding: 0 30px 80px; }
+    .projects-grid { gap: 20px 16px; }
+    .project-item.size-1, .project-item.size-3, .project-item.size-5,
+    .project-item.size-6, .project-item.size-8 { grid-column: span 6; }
+    .project-item.size-2, .project-item.size-4, .project-item.size-7 { grid-column: span 12; }
     nav ul { gap: 25px; }
-    footer { padding: 30px; }
+    .may-like-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 40px 30px; flex-direction: column; gap: 20px; }
   }
   
   @media (max-width: 600px) {
-    .projects-grid { grid-template-columns: 1fr; gap: 15px; }
-    .project-item.wide { grid-column: span 1; aspect-ratio: 1/1; }
-    .page-title { font-size: 28px; }
-    header { padding: 15px 20px; }
-    main { padding-left: 20px; padding-right: 20px; padding-top: 100px;}
+    header { padding: 14px 20px; }
+    .logo-img { height: 32px; }
+    .logo-name { font-size: 16px; }
+    .logo-role { font-size: 9px; }
+    .hero { padding: 120px 20px 60px; }
+    main { padding: 0 20px 60px; }
+    .hero-meta { flex-wrap: wrap; gap: 30px; }
+    .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+    .project-item { grid-column: span 1 !important; aspect-ratio: 1 / 1 !important; }
+    .may-like-grid { grid-template-columns: 1fr; }
     nav ul { gap: 18px; }
-    nav a { font-size: 13px; }
+    nav a { font-size: 11px; letter-spacing: 1px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <a href="#" class="logo">Eduardo Gochicoa</a>
+  <a href="#" class="logo-container">
+    <!-- Tu logotipo -->
+    <img src="logo.png" alt="Eduardo Gochicoa" class="logo-img" onerror="this.style.display='none'">
+    <div class="logo-text">
+      <span class="logo-name">Eduardo Gochicoa</span>
+      <span class="logo-role">Social Media · Design</span>
+    </div>
+  </a>
   <nav>
     <ul>
       <li><a href="#work">Trabajos</a></li>
+      <li><a href="#about">Sobre mí</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
   </nav>
 </header>
 
+<!-- HERO editorial -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span class="hero-eyebrow-text">Portafolio · 2026</span>
+  </div>
+  
+  <h1 class="hero-title">Social <em>Media</em></h1>
+  
+  <p class="hero-intro">
+    Una selección de proyectos enfocados en contenido digital, motion graphics y branding para marcas. Cada pieza está diseñada para conectar, emocionar y generar impacto.
+  </p>
+  
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Especialidad</span>
+      <span class="hero-meta-value">Diseño · Motion</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Año</span>
+      <span class="hero-meta-value">2024 — 2026</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Proyectos</span>
+      <span class="hero-meta-value">11 piezas</span>
+    </div>
+  </div>
+</section>
+
 <main>
-  <h1 class="page-title">Social Media</h1>
+  <div class="section-header">
+    <span class="section-number">— Selección 01</span>
+    <span class="section-count">11 / Proyectos</span>
+  </div>
   
   <div class="projects-grid">
     
-    <div class="project-item" data-type="video" data-src="videos/proyecto-01.mp4">
+    <!-- 01 - Video vertical -->
+    <div class="project-item size-1" data-type="video" data-src="videos/proyecto-01.mp4">
+      <span class="project-label">01</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-01.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 01</div>
-        <div class="project-desc">Campaña de Instagram</div>
+        <span class="project-number">— Proyecto 01</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Campaña Instagram</div>
+            <div class="project-desc">Diseño · Motion</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item wide" data-type="video" data-src="videos/proyecto-02.mp4">
+    <!-- 02 - Video panorámico -->
+    <div class="project-item size-2" data-type="video" data-src="videos/proyecto-02.mp4">
+      <span class="project-label">02</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-02.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 02</div>
-        <div class="project-desc">Brand reel series</div>
+        <span class="project-number">— Proyecto 02</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Brand Reel Series</div>
+            <div class="project-desc">Branding · Reels</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="image" data-src="images/imagen-01.png">
+    <!-- 03 - Imagen cuadrada -->
+    <div class="project-item size-3" data-type="image" data-src="images/imagen-01.png">
+      <span class="project-label">03</span>
       <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
       <div class="project-overlay">
-        <div class="project-title">Imagen 01</div>
-        <div class="project-desc">Diseño editorial</div>
+        <span class="project-number">— Proyecto 03</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Editorial Print</div>
+            <div class="project-desc">Diseño editorial</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="video" data-src="videos/proyecto-03.mp4">
+    <!-- 04 - Video horizontal -->
+    <div class="project-item size-4" data-type="video" data-src="videos/proyecto-03.mp4">
+      <span class="project-label">04</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-03.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 03</div>
-        <div class="project-desc">Motion graphics</div>
+        <span class="project-number">— Proyecto 04</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Motion Graphics</div>
+            <div class="project-desc">Animación 2D</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="video" data-src="videos/proyecto-04.mp4">
+    <!-- 05 - Video medio -->
+    <div class="project-item size-5" data-type="video" data-src="videos/proyecto-04.mp4">
+      <span class="project-label">05</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-04.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 04</div>
-        <div class="project-desc">Animación 2D</div>
+        <span class="project-number">— Proyecto 05</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Product Launch</div>
+            <div class="project-desc">Lanzamiento digital</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="image" data-src="images/imagen-02.png">
+    <!-- 06 - Imagen -->
+    <div class="project-item size-6" data-type="image" data-src="images/imagen-02.png">
+      <span class="project-label">06</span>
       <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
       <div class="project-overlay">
-        <div class="project-title">Imagen 02</div>
-        <div class="project-desc">Identidad visual</div>
+        <span class="project-number">— Proyecto 06</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Identidad Visual</div>
+            <div class="project-desc">Branding</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item wide" data-type="video" data-src="videos/proyecto-05.mp4">
+    <!-- 07 - Banner ancho -->
+    <div class="project-item size-7" data-type="video" data-src="videos/proyecto-05.mp4">
+      <span class="project-label">07</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-05.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 05</div>
-        <div class="project-desc">Campaña multimarca</div>
+        <span class="project-number">— Proyecto 07</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Campaña Multimarca</div>
+            <div class="project-desc">Estrategia 360°</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="video" data-src="videos/proyecto-06.mp4">
+    <!-- 08 - Video vertical -->
+    <div class="project-item size-8" data-type="video" data-src="videos/proyecto-06.mp4">
+      <span class="project-label">08</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-06.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 06</div>
-        <div class="project-desc">TikTok content</div>
+        <span class="project-number">— Proyecto 08</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">TikTok Content</div>
+            <div class="project-desc">Viral strategy</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="video" data-src="videos/proyecto-07.mp4">
+    <!-- 09 - Video horizontal -->
+    <div class="project-item size-4" data-type="video" data-src="videos/proyecto-07.mp4">
+      <span class="project-label">09</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-07.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 07</div>
-        <div class="project-desc">Reels publicitarios</div>
+        <span class="project-number">— Proyecto 09</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Reels Publicitarios</div>
+            <div class="project-desc">Advertising</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="image" data-src="images/imagen-03.png">
+    <!-- 10 - Imagen -->
+    <div class="project-item size-3" data-type="image" data-src="images/imagen-03.png">
+      <span class="project-label">10</span>
       <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
       <div class="project-overlay">
-        <div class="project-title">Imagen 03</div>
-        <div class="project-desc">Diseño gráfico</div>
+        <span class="project-number">— Proyecto 10</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Diseño Gráfico</div>
+            <div class="project-desc">Print · Digital</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
-    <div class="project-item" data-type="video" data-src="videos/proyecto-08.mp4">
+    <!-- 11 - Video horizontal -->
+    <div class="project-item size-2" data-type="video" data-src="videos/proyecto-08.mp4">
+      <span class="project-label">11</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-08.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <div class="project-title">Proyecto 08</div>
-        <div class="project-desc">Story templates</div>
+        <span class="project-number">— Proyecto 11</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Story Templates</div>
+            <div class="project-desc">Sistema gráfico</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
     </div>
     
   </div>
   
   <section class="may-like-section">
-    <h3 class="section-subtitle">También te puede interesar</h3>
-    <div class="may-like-links">
-      <a href="#">I.A.<span class="year">2026</span></a>
-      <a href="#">Motion Ads<span class="year">2024</span></a>
-      <a href="#">Brand Animation<span class="year">2024</span></a>
-      <a href="#">Branding<span class="year">2024</span></a>
-      <a href="#">2D - 3D Animations<span class="year">2024</span></a>
-      <a href="#">Explainer Videos<span class="year">2024</span></a>
+    <h3 class="section-subtitle">— También te puede interesar</h3>
+    <div class="may-like-grid">
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">I.A.</span>
+        <span class="may-like-item-year">2026</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Motion Ads</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Brand Animation</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Branding</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">2D · 3D Animations</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Explainer Videos</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
     </div>
   </section>
 </main>
@@ -401,7 +800,12 @@
 </div>
 
 <footer>
-  <span>© 2026 Eduardo Gochicoa</span>
+  <span>© 2026 Eduardo Gochicoa — Todos los derechos reservados</span>
+  <div class="footer-social">
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Behance</a>
+    <a href="#" target="_blank">LinkedIn</a>
+  </div>
   <a href="#" class="back-top">↑ Volver arriba</a>
 </footer>
 
