@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eduardo Gochicoa — Social Media</title>
+<title>Eduardo Gochicoa — Motion Graphics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
     overflow-x: hidden;
   }
   
-  /* HEADER editorial */
+  /* HEADER */
   header {
     position: fixed;
     top: 0;
@@ -59,7 +59,7 @@
   .logo-container:hover { opacity: 0.7; }
   
   .logo-img {
-    height: 38px;
+    height: 42px;
     width: auto;
     display: block;
   }
@@ -89,18 +89,19 @@
   nav ul {
     display: flex;
     list-style: none;
-    gap: 42px;
+    gap: 38px;
   }
   
   nav a {
     color: var(--text);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     position: relative;
     transition: color 0.3s ease;
+    cursor: pointer;
   }
   
   nav a::after {
@@ -116,7 +117,7 @@
   
   nav a:hover::after { width: 100%; }
   
-  /* HERO editorial */
+  /* HERO */
   .hero {
     max-width: 1400px;
     margin: 0 auto;
@@ -173,6 +174,7 @@
     gap: 60px;
     padding-top: 30px;
     border-top: 1px solid var(--border);
+    flex-wrap: wrap;
   }
   
   .hero-meta-item {
@@ -194,7 +196,7 @@
     font-weight: 400;
   }
   
-  /* GRID editorial — asimétrico */
+  /* MAIN */
   main {
     max-width: 1400px;
     margin: 0 auto;
@@ -210,12 +212,25 @@
     border-bottom: 1px solid var(--border);
   }
   
+  .section-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
   .section-number {
     font-family: var(--serif);
     font-size: 14px;
     font-style: italic;
     color: var(--accent);
     font-weight: 300;
+  }
+  
+  .section-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
   }
   
   .section-count {
@@ -225,10 +240,11 @@
     color: var(--text-dim);
   }
   
+  /* GRID Social Media — composición editorial mejorada */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 30px 24px;
+    gap: 24px;
   }
   
   .project-item {
@@ -239,15 +255,21 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  /* Layouts diversos para look editorial */
-  .project-item.size-1 { grid-column: span 4; aspect-ratio: 4 / 5; }
-  .project-item.size-2 { grid-column: span 8; aspect-ratio: 16 / 9; }
-  .project-item.size-3 { grid-column: span 5; aspect-ratio: 1 / 1; }
-  .project-item.size-4 { grid-column: span 7; aspect-ratio: 16 / 11; }
-  .project-item.size-5 { grid-column: span 6; aspect-ratio: 4 / 3; }
-  .project-item.size-6 { grid-column: span 6; aspect-ratio: 4 / 3; }
-  .project-item.size-7 { grid-column: span 12; aspect-ratio: 21 / 9; }
-  .project-item.size-8 { grid-column: span 4; aspect-ratio: 3 / 4; }
+  /* Composición rítmica: alternancia visual */
+  .row-1-a { grid-column: span 5; aspect-ratio: 4 / 5; }
+  .row-1-b { grid-column: span 7; aspect-ratio: 16 / 11; }
+  
+  .row-2-a { grid-column: span 8; aspect-ratio: 16 / 9; }
+  .row-2-b { grid-column: span 4; aspect-ratio: 1 / 1; }
+  
+  .row-3-a { grid-column: span 4; aspect-ratio: 3 / 4; }
+  .row-3-b { grid-column: span 4; aspect-ratio: 3 / 4; }
+  .row-3-c { grid-column: span 4; aspect-ratio: 3 / 4; }
+  
+  .row-4-a { grid-column: span 7; aspect-ratio: 16 / 11; }
+  .row-4-b { grid-column: span 5; aspect-ratio: 4 / 5; }
+  
+  .row-5-full { grid-column: span 12; aspect-ratio: 21 / 9; }
   
   .project-item:hover {
     transform: translateY(-4px);
@@ -279,7 +301,7 @@
     transition: opacity 0.4s ease;
     pointer-events: none;
     z-index: 2;
-    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.65) 100%);
   }
   
   .project-item:hover .project-overlay {
@@ -325,7 +347,6 @@
     flex-shrink: 0;
   }
   
-  /* Label persistente: número arriba en cada item */
   .project-label {
     position: absolute;
     top: 18px;
@@ -341,6 +362,107 @@
     z-index: 3;
     letter-spacing: 1px;
     opacity: 0.9;
+  }
+  
+  /* SECCIÓN ABOUT */
+  .about-section {
+    margin-top: 140px;
+    padding-top: 80px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+  
+  .about-label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: sticky;
+    top: 120px;
+  }
+  
+  .about-label-num {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--accent);
+  }
+  
+  .about-label-title {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+  }
+  
+  .about-content {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text);
+    font-weight: 300;
+  }
+  
+  .about-content p {
+    margin-bottom: 24px;
+  }
+  
+  .about-content strong {
+    font-weight: 500;
+    color: var(--accent);
+    font-style: italic;
+    font-family: var(--serif);
+  }
+  
+  /* SECCIÓN BRAND ANIMATION (Vimeo) */
+  .brand-animation-section {
+    margin-top: 140px;
+    padding-top: 80px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .vimeo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+  
+  .vimeo-featured { grid-column: span 3; }
+  .vimeo-regular { grid-column: span 2; }
+  
+  .vimeo-item {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-alt);
+    overflow: hidden;
+  }
+  
+  .vimeo-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  
+  .vimeo-caption {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  
+  .vimeo-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .vimeo-year {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
   }
   
   /* MODAL */
@@ -427,9 +549,7 @@
     align-items: center;
   }
   
-  .may-like-item:hover {
-    background: var(--bg-alt);
-  }
+  .may-like-item:hover { background: var(--bg-alt); }
   
   .may-like-item-text {
     font-family: var(--serif);
@@ -453,6 +573,8 @@
     font-size: 12px;
     color: var(--text-dim);
     letter-spacing: 0.5px;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
   .footer-social {
@@ -484,29 +606,39 @@
     header { padding: 18px 30px; }
     .hero { padding: 140px 30px 80px; }
     main { padding: 0 30px 80px; }
-    .projects-grid { gap: 20px 16px; }
-    .project-item.size-1, .project-item.size-3, .project-item.size-5,
-    .project-item.size-6, .project-item.size-8 { grid-column: span 6; }
-    .project-item.size-2, .project-item.size-4, .project-item.size-7 { grid-column: span 12; }
-    nav ul { gap: 25px; }
+    .projects-grid { gap: 16px; }
+    .row-1-a, .row-1-b, .row-2-a, .row-2-b,
+    .row-4-a, .row-4-b { grid-column: span 12; }
+    .row-3-a, .row-3-b, .row-3-c { grid-column: span 6; }
+    .row-5-full { grid-column: span 12; aspect-ratio: 16/9; }
+    .about-section { grid-template-columns: 1fr; gap: 30px; }
+    .about-label { position: static; }
+    .about-label-title { font-size: 32px; }
+    .vimeo-grid { grid-template-columns: 1fr; }
+    .vimeo-featured, .vimeo-regular { grid-column: span 1; }
+    nav ul { gap: 22px; }
     .may-like-grid { grid-template-columns: repeat(2, 1fr); }
-    footer { padding: 40px 30px; flex-direction: column; gap: 20px; }
+    footer { padding: 40px 30px; }
   }
   
   @media (max-width: 600px) {
     header { padding: 14px 20px; }
-    .logo-img { height: 32px; }
-    .logo-name { font-size: 16px; }
-    .logo-role { font-size: 9px; }
+    .logo-img { height: 36px; }
+    .logo-name { font-size: 15px; }
+    .logo-role { font-size: 9px; letter-spacing: 1.8px; }
     .hero { padding: 120px 20px 60px; }
     main { padding: 0 20px 60px; }
-    .hero-meta { flex-wrap: wrap; gap: 30px; }
-    .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+    .hero-meta { gap: 25px; }
+    .projects-grid { grid-template-columns: 1fr; }
     .project-item { grid-column: span 1 !important; aspect-ratio: 1 / 1 !important; }
+    .row-3-a, .row-3-b, .row-3-c { aspect-ratio: 3/4 !important; }
     .may-like-grid { grid-template-columns: 1fr; }
-    nav ul { gap: 18px; }
-    nav a { font-size: 11px; letter-spacing: 1px; }
+    nav ul { gap: 14px; }
+    nav a { font-size: 10px; letter-spacing: 1px; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .section-title { font-size: 28px; }
+    .about-content { font-size: 16px; }
+    .about-label-title { font-size: 28px; }
   }
 </style>
 </head>
@@ -514,85 +646,89 @@
 
 <header>
   <a href="#" class="logo-container">
-    <!-- Tu logotipo -->
     <img src="logo.png" alt="Eduardo Gochicoa" class="logo-img" onerror="this.style.display='none'">
     <div class="logo-text">
       <span class="logo-name">Eduardo Gochicoa</span>
-      <span class="logo-role">Social Media · Design</span>
+      <span class="logo-role">Motion Graphics</span>
     </div>
   </a>
   <nav>
     <ul>
-      <li><a href="#work">Trabajos</a></li>
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#brand-animation">Brand Animation</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- HERO editorial -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">
     <div class="hero-eyebrow-line"></div>
-    <span class="hero-eyebrow-text">Portafolio · 2026</span>
+    <span class="hero-eyebrow-text">Portfolio · 2026</span>
   </div>
   
-  <h1 class="hero-title">Social <em>Media</em></h1>
+  <h1 class="hero-title">Motion <em>Graphics</em><br>& Design</h1>
   
   <p class="hero-intro">
-    Una selección de proyectos enfocados en contenido digital, motion graphics y branding para marcas. Cada pieza está diseñada para conectar, emocionar y generar impacto.
+    Multimedia Art Director crafting visually compelling experiences for global brands. A selection of work in social media, motion graphics and brand animation.
   </p>
   
   <div class="hero-meta">
     <div class="hero-meta-item">
-      <span class="hero-meta-label">Especialidad</span>
-      <span class="hero-meta-value">Diseño · Motion</span>
+      <span class="hero-meta-label">Role</span>
+      <span class="hero-meta-value">Art Director</span>
     </div>
     <div class="hero-meta-item">
-      <span class="hero-meta-label">Año</span>
+      <span class="hero-meta-label">Currently at</span>
+      <span class="hero-meta-value">GUT Agency</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Year</span>
       <span class="hero-meta-value">2024 — 2026</span>
-    </div>
-    <div class="hero-meta-item">
-      <span class="hero-meta-label">Proyectos</span>
-      <span class="hero-meta-value">11 piezas</span>
     </div>
   </div>
 </section>
 
-<main>
+<main id="work">
+  
+  <!-- SECCIÓN SOCIAL MEDIA -->
   <div class="section-header">
-    <span class="section-number">— Selección 01</span>
-    <span class="section-count">11 / Proyectos</span>
+    <div class="section-header-left">
+      <span class="section-number">— Selected Work 01</span>
+      <h2 class="section-title">Social Media</h2>
+    </div>
+    <span class="section-count">11 / Pieces</span>
   </div>
   
   <div class="projects-grid">
     
-    <!-- 01 - Video vertical -->
-    <div class="project-item size-1" data-type="video" data-src="videos/proyecto-01.mp4">
+    <!-- Fila 1: vertical + horizontal -->
+    <div class="project-item row-1-a" data-type="video" data-src="videos/proyecto-01.mp4">
       <span class="project-label">01</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-01.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 01</span>
+        <span class="project-number">— Project 01</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Campaña Instagram</div>
-            <div class="project-desc">Diseño · Motion</div>
+            <div class="project-title">Instagram Campaign</div>
+            <div class="project-desc">Design · Motion</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- 02 - Video panorámico -->
-    <div class="project-item size-2" data-type="video" data-src="videos/proyecto-02.mp4">
+    <div class="project-item row-1-b" data-type="video" data-src="videos/proyecto-02.mp4">
       <span class="project-label">02</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-02.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 02</span>
+        <span class="project-number">— Project 02</span>
         <div class="project-info">
           <div>
             <div class="project-title">Brand Reel Series</div>
@@ -603,67 +739,65 @@
       </div>
     </div>
     
-    <!-- 03 - Imagen cuadrada -->
-    <div class="project-item size-3" data-type="image" data-src="images/imagen-01.png">
+    <!-- Fila 2: horizontal grande + imagen cuadrada -->
+    <div class="project-item row-2-a" data-type="video" data-src="videos/proyecto-03.mp4">
       <span class="project-label">03</span>
-      <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
-      <div class="project-overlay">
-        <span class="project-number">— Proyecto 03</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">Editorial Print</div>
-            <div class="project-desc">Diseño editorial</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- 04 - Video horizontal -->
-    <div class="project-item size-4" data-type="video" data-src="videos/proyecto-03.mp4">
-      <span class="project-label">04</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-03.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 04</span>
+        <span class="project-number">— Project 03</span>
         <div class="project-info">
           <div>
             <div class="project-title">Motion Graphics</div>
-            <div class="project-desc">Animación 2D</div>
+            <div class="project-desc">2D Animation</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- 05 - Video medio -->
-    <div class="project-item size-5" data-type="video" data-src="videos/proyecto-04.mp4">
+    <div class="project-item row-2-b" data-type="image" data-src="images/imagen-01.png">
+      <span class="project-label">04</span>
+      <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
+      <div class="project-overlay">
+        <span class="project-number">— Project 04</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Editorial Print</div>
+            <div class="project-desc">Editorial Design</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Fila 3: tres verticales -->
+    <div class="project-item row-3-a" data-type="video" data-src="videos/proyecto-04.mp4">
       <span class="project-label">05</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-04.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 05</span>
+        <span class="project-number">— Project 05</span>
         <div class="project-info">
           <div>
             <div class="project-title">Product Launch</div>
-            <div class="project-desc">Lanzamiento digital</div>
+            <div class="project-desc">Digital Launch</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- 06 - Imagen -->
-    <div class="project-item size-6" data-type="image" data-src="images/imagen-02.png">
+    <div class="project-item row-3-b" data-type="image" data-src="images/imagen-02.png">
       <span class="project-label">06</span>
       <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 06</span>
+        <span class="project-number">— Project 06</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Identidad Visual</div>
+            <div class="project-title">Visual Identity</div>
             <div class="project-desc">Branding</div>
           </div>
           <span class="project-arrow">↗</span>
@@ -671,53 +805,34 @@
       </div>
     </div>
     
-    <!-- 07 - Banner ancho -->
-    <div class="project-item size-7" data-type="video" data-src="videos/proyecto-05.mp4">
+    <div class="project-item row-3-c" data-type="video" data-src="videos/proyecto-05.mp4">
       <span class="project-label">07</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-05.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 07</span>
+        <span class="project-number">— Project 07</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Campaña Multimarca</div>
-            <div class="project-desc">Estrategia 360°</div>
+            <div class="project-title">TikTok Content</div>
+            <div class="project-desc">Viral Strategy</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- 08 - Video vertical -->
-    <div class="project-item size-8" data-type="video" data-src="videos/proyecto-06.mp4">
+    <!-- Fila 4: horizontal grande + vertical -->
+    <div class="project-item row-4-a" data-type="video" data-src="videos/proyecto-06.mp4">
       <span class="project-label">08</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-06.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 08</span>
+        <span class="project-number">— Project 08</span>
         <div class="project-info">
           <div>
-            <div class="project-title">TikTok Content</div>
-            <div class="project-desc">Viral strategy</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- 09 - Video horizontal -->
-    <div class="project-item size-4" data-type="video" data-src="videos/proyecto-07.mp4">
-      <span class="project-label">09</span>
-      <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-07.mp4" type="video/mp4">
-      </video>
-      <div class="project-overlay">
-        <span class="project-number">— Proyecto 09</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">Reels Publicitarios</div>
+            <div class="project-title">Reels Series</div>
             <div class="project-desc">Advertising</div>
           </div>
           <span class="project-arrow">↗</span>
@@ -725,15 +840,14 @@
       </div>
     </div>
     
-    <!-- 10 - Imagen -->
-    <div class="project-item size-3" data-type="image" data-src="images/imagen-03.png">
-      <span class="project-label">10</span>
+    <div class="project-item row-4-b" data-type="image" data-src="images/imagen-03.png">
+      <span class="project-label">09</span>
       <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 10</span>
+        <span class="project-number">— Project 09</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Diseño Gráfico</div>
+            <div class="project-title">Graphic Design</div>
             <div class="project-desc">Print · Digital</div>
           </div>
           <span class="project-arrow">↗</span>
@@ -741,18 +855,36 @@
       </div>
     </div>
     
-    <!-- 11 - Video horizontal -->
-    <div class="project-item size-2" data-type="video" data-src="videos/proyecto-08.mp4">
+    <!-- Fila 5: banner ancho -->
+    <div class="project-item row-5-full" data-type="video" data-src="videos/proyecto-07.mp4">
+      <span class="project-label">10</span>
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-07.mp4" type="video/mp4">
+      </video>
+      <div class="project-overlay">
+        <span class="project-number">— Project 10</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Multi-Brand Campaign</div>
+            <div class="project-desc">360° Strategy</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Fila 6: dos horizontales medias -->
+    <div class="project-item row-1-b" data-type="video" data-src="videos/proyecto-08.mp4">
       <span class="project-label">11</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-08.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Proyecto 11</span>
+        <span class="project-number">— Project 11</span>
         <div class="project-info">
           <div>
             <div class="project-title">Story Templates</div>
-            <div class="project-desc">Sistema gráfico</div>
+            <div class="project-desc">Graphic System</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
@@ -761,19 +893,125 @@
     
   </div>
   
+  <!-- SECCIÓN ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-label">
+      <span class="about-label-num">— 02</span>
+      <h2 class="about-label-title">About<br><em style="font-style:italic; color: var(--accent);">me</em></h2>
+    </div>
+    <div class="about-content">
+      <p>
+        With a passion for blending creativity and technology, I specialize in crafting visually compelling and innovative multimedia experiences. As a <strong>Multimedia Art Director at GUT</strong>, I bring a diverse skill set in design, animation, and storytelling to create engaging content that resonates with audiences.
+      </p>
+      <p>
+        My work spans across digital platforms, including branding, video production, and interactive media, always pushing the boundaries of creativity and ensuring that each project delivers a memorable impact.
+      </p>
+      <p>
+        I thrive in collaborative environments, working closely with cross-functional teams to bring ideas to life and drive success for global brands.
+      </p>
+    </div>
+  </section>
+  
+  <!-- SECCIÓN BRAND ANIMATION (Vimeo) -->
+  <section id="brand-animation" class="brand-animation-section">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-number">— Selected Work 03</span>
+        <h2 class="section-title">Brand Animation</h2>
+      </div>
+      <span class="section-count">6 / Reels</span>
+    </div>
+    
+    <div class="vimeo-grid">
+      
+      <!-- Featured: 2 videos grandes arriba -->
+      <div class="vimeo-featured">
+        <div class="vimeo-item">
+          <iframe src="https://player.vimeo.com/video/1179090531" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="vimeo-caption">
+          <span class="vimeo-title">Brand Animation 01</span>
+          <span class="vimeo-year">2025</span>
+        </div>
+      </div>
+      
+      <div class="vimeo-featured">
+        <div class="vimeo-item">
+          <iframe src="https://player.vimeo.com/video/1181323472" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="vimeo-caption">
+          <span class="vimeo-title">Brand Animation 02</span>
+          <span class="vimeo-year">2025</span>
+        </div>
+      </div>
+      
+      <!-- Regulares: 4 videos medianos abajo -->
+      <div class="vimeo-regular">
+        <div class="vimeo-item">
+          <iframe src="https://player.vimeo.com/video/179088471" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="vimeo-caption">
+          <span class="vimeo-title">Brand Animation 03</span>
+          <span class="vimeo-year">2024</span>
+        </div>
+      </div>
+      
+      <div class="vimeo-regular">
+        <div class="vimeo-item">
+          <iframe src="https://player.vimeo.com/video/859255686" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="vimeo-caption">
+          <span class="vimeo-title">Brand Animation 04</span>
+          <span class="vimeo-year">2023</span>
+        </div>
+      </div>
+      
+      <div class="vimeo-regular">
+        <div class="vimeo-item">
+          <iframe src="https://player.vimeo.com/video/880368199" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="vimeo-caption">
+          <span class="vimeo-title">Brand Animation 05</span>
+          <span class="vimeo-year">2023</span>
+        </div>
+      </div>
+      
+      <!-- Video 6 en placeholder: ocupa 2 columnas centrado en su fila -->
+      <div class="vimeo-regular" style="grid-column-start: 3;">
+        <div class="vimeo-item">
+          <iframe src="https://player.vimeo.com/video/560683479" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="vimeo-caption">
+          <span class="vimeo-title">Brand Animation 06</span>
+          <span class="vimeo-year">2021</span>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- SECCIÓN FINAL -->
   <section class="may-like-section">
-    <h3 class="section-subtitle">— También te puede interesar</h3>
+    <h3 class="section-subtitle">— You may also like</h3>
     <div class="may-like-grid">
       <a href="#" class="may-like-item">
-        <span class="may-like-item-text">I.A.</span>
+        <span class="may-like-item-text">A.I.</span>
         <span class="may-like-item-year">2026</span>
       </a>
       <a href="#" class="may-like-item">
         <span class="may-like-item-text">Motion Ads</span>
-        <span class="may-like-item-year">2024</span>
-      </a>
-      <a href="#" class="may-like-item">
-        <span class="may-like-item-text">Brand Animation</span>
         <span class="may-like-item-year">2024</span>
       </a>
       <a href="#" class="may-like-item">
@@ -788,6 +1026,10 @@
         <span class="may-like-item-text">Explainer Videos</span>
         <span class="may-like-item-year">2024</span>
       </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">SRAX Brand</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
     </div>
   </section>
 </main>
@@ -799,14 +1041,15 @@
   </div>
 </div>
 
-<footer>
-  <span>© 2026 Eduardo Gochicoa — Todos los derechos reservados</span>
+<footer id="contact">
+  <span>© 2026 Eduardo Gochicoa — All rights reserved</span>
   <div class="footer-social">
+    <a href="https://vimeo.com/user94882195" target="_blank">Vimeo</a>
     <a href="#" target="_blank">Instagram</a>
     <a href="#" target="_blank">Behance</a>
     <a href="#" target="_blank">LinkedIn</a>
   </div>
-  <a href="#" class="back-top">↑ Volver arriba</a>
+  <a href="#" class="back-top">↑ Back to top</a>
 </footer>
 
 <script>
@@ -840,6 +1083,17 @@
   
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMedia();
+  });
+  
+  // Smooth scroll para los links del menú
+  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
 </script>
 
