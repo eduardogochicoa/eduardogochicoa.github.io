@@ -416,7 +416,248 @@
     font-family: var(--serif);
   }
   
-  /* SECCIÓN BRAND ANIMATION (Vimeo) */
+  /* SECCIÓN A.I. — Showcase cinematográfico */
+  .ai-section {
+    margin-top: 140px;
+    padding-top: 80px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .ai-intro {
+    max-width: 600px;
+    margin: 30px 0 60px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+  
+  /* Hero video destacado — 16:9 cinematográfico */
+  .ai-hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-alt);
+    cursor: pointer;
+    margin-bottom: 60px;
+  }
+  
+  .ai-hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  }
+  
+  .ai-hero:hover video {
+    transform: scale(1.03);
+    filter: brightness(0.55);
+  }
+  
+  .ai-hero-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 35%, transparent 55%, rgba(0,0,0,0.75) 100%);
+    pointer-events: none;
+  }
+  
+  .ai-hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .ai-hero-tag {
+    font-family: var(--serif);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid rgba(212, 165, 116, 0.3);
+  }
+  
+  .ai-hero-num {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+  
+  .ai-hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    transition: transform 0.5s ease;
+  }
+  
+  .ai-hero:hover .ai-hero-bottom {
+    transform: translateY(-6px);
+  }
+  
+  .ai-hero-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+  
+  .ai-hero-desc {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+  
+  .ai-hero-arrow {
+    font-family: var(--serif);
+    font-size: 40px;
+    color: var(--text);
+    opacity: 0.8;
+    transition: transform 0.4s ease;
+  }
+  
+  .ai-hero:hover .ai-hero-arrow {
+    transform: translate(6px, -6px);
+    opacity: 1;
+  }
+  
+  /* Etiqueta del divisor antes de la galería */
+  .ai-gallery-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .ai-gallery-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  
+  .ai-gallery-text {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+  
+  /* Grid de galería - todos 16:9 */
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .ai-grid-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-alt);
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .ai-grid-item:hover { transform: translateY(-4px); }
+  
+  .ai-grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.4s ease;
+  }
+  
+  .ai-grid-item:hover video {
+    transform: scale(1.06);
+    filter: brightness(0.6);
+  }
+  
+  .ai-grid-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  
+  .ai-grid-item:hover .ai-grid-overlay { opacity: 1; }
+  
+  .ai-grid-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .ai-grid-num {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+  
+  .ai-grid-arrow {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text);
+    opacity: 0.7;
+  }
+  
+  .ai-grid-info {
+    width: 100%;
+  }
+  
+  .ai-grid-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    letter-spacing: -0.2px;
+  }
+  
+  .ai-grid-tool {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  
+  .ai-grid-label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: var(--serif);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--text);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    padding: 5px 12px;
+    border-radius: 100px;
+    z-index: 3;
+    letter-spacing: 1px;
+    opacity: 0.85;
+  }
   .brand-animation-section {
     margin-top: 140px;
     padding-top: 80px;
@@ -616,6 +857,9 @@
     .about-label-title { font-size: 32px; }
     .vimeo-grid { grid-template-columns: 1fr; }
     .vimeo-featured, .vimeo-regular { grid-column: span 1; }
+    .ai-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .ai-hero-overlay { padding: 35px; }
+    .ai-hero-title { font-size: clamp(28px, 5vw, 40px); }
     nav ul { gap: 22px; }
     .may-like-grid { grid-template-columns: repeat(2, 1fr); }
     footer { padding: 40px 30px; }
@@ -639,6 +883,9 @@
     .section-title { font-size: 28px; }
     .about-content { font-size: 16px; }
     .about-label-title { font-size: 28px; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .ai-hero-overlay { padding: 20px; }
+    .ai-hero-title { font-size: 28px; }
   }
 </style>
 </head>
@@ -657,6 +904,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#brand-animation">Brand Animation</a></li>
+      <li><a href="#ai">A.I.</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -1002,14 +1250,175 @@
     </div>
   </section>
   
+  <!-- SECCIÓN A.I. -->
+  <section id="ai" class="ai-section">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-number">— Selected Work 04</span>
+        <h2 class="section-title">A.I. Experiments</h2>
+      </div>
+      <span class="section-count">8 / Videos</span>
+    </div>
+    
+    <p class="ai-intro">
+      Exploring the intersection of artificial intelligence and visual storytelling. A collection of experimental pieces created with generative AI tools, pushing the boundaries between human creativity and machine learning.
+    </p>
+    
+    <!-- HERO video destacado 16:9 -->
+    <div class="ai-hero" data-type="video" data-src="videos/ai-01.mp4">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="videos/ai-01.mp4" type="video/mp4">
+      </video>
+      <div class="ai-hero-overlay">
+        <div class="ai-hero-top">
+          <span class="ai-hero-tag">✦ Featured · A.I.</span>
+          <span class="ai-hero-num">— 01 / 08</span>
+        </div>
+        <div class="ai-hero-bottom">
+          <div>
+            <h3 class="ai-hero-title">Generative<br><em style="font-style:italic; color:var(--accent);">Vision</em></h3>
+            <span class="ai-hero-desc">A.I. · Motion · Experimental</span>
+          </div>
+          <span class="ai-hero-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Divisor de galería -->
+    <div class="ai-gallery-label">
+      <span class="ai-gallery-text">— More experiments</span>
+      <div class="ai-gallery-line"></div>
+    </div>
+    
+    <!-- Grid 3x con todos los videos en 16:9 -->
+    <div class="ai-grid">
+      
+      <div class="ai-grid-item" data-type="video" data-src="videos/ai-02.mp4">
+        <span class="ai-grid-label">02</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/ai-02.mp4" type="video/mp4">
+        </video>
+        <div class="ai-grid-overlay">
+          <div class="ai-grid-top">
+            <span class="ai-grid-num">— Experiment 02</span>
+            <span class="ai-grid-arrow">↗</span>
+          </div>
+          <div class="ai-grid-info">
+            <div class="ai-grid-title">Portrait Study</div>
+            <div class="ai-grid-tool">Runway · Midjourney</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ai-grid-item" data-type="video" data-src="videos/ai-03.mp4">
+        <span class="ai-grid-label">03</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/ai-03.mp4" type="video/mp4">
+        </video>
+        <div class="ai-grid-overlay">
+          <div class="ai-grid-top">
+            <span class="ai-grid-num">— Experiment 03</span>
+            <span class="ai-grid-arrow">↗</span>
+          </div>
+          <div class="ai-grid-info">
+            <div class="ai-grid-title">Dreamscape</div>
+            <div class="ai-grid-tool">Runway Gen-3</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ai-grid-item" data-type="video" data-src="videos/ai-04.mp4">
+        <span class="ai-grid-label">04</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/ai-04.mp4" type="video/mp4">
+        </video>
+        <div class="ai-grid-overlay">
+          <div class="ai-grid-top">
+            <span class="ai-grid-num">— Experiment 04</span>
+            <span class="ai-grid-arrow">↗</span>
+          </div>
+          <div class="ai-grid-info">
+            <div class="ai-grid-title">Liquid Motion</div>
+            <div class="ai-grid-tool">Kling · Luma</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ai-grid-item" data-type="video" data-src="videos/ai-05.mp4">
+        <span class="ai-grid-label">05</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/ai-05.mp4" type="video/mp4">
+        </video>
+        <div class="ai-grid-overlay">
+          <div class="ai-grid-top">
+            <span class="ai-grid-num">— Experiment 05</span>
+            <span class="ai-grid-arrow">↗</span>
+          </div>
+          <div class="ai-grid-info">
+            <div class="ai-grid-title">Urban Echoes</div>
+            <div class="ai-grid-tool">Sora · After Effects</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ai-grid-item" data-type="video" data-src="videos/ai-06.mp4">
+        <span class="ai-grid-label">06</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/ai-06.mp4" type="video/mp4">
+        </video>
+        <div class="ai-grid-overlay">
+          <div class="ai-grid-top">
+            <span class="ai-grid-num">— Experiment 06</span>
+            <span class="ai-grid-arrow">↗</span>
+          </div>
+          <div class="ai-grid-info">
+            <div class="ai-grid-title">Synthwave</div>
+            <div class="ai-grid-tool">Runway</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ai-grid-item" data-type="video" data-src="videos/ai-07.mp4">
+        <span class="ai-grid-label">07</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/ai-07.mp4" type="video/mp4">
+        </video>
+        <div class="ai-grid-overlay">
+          <div class="ai-grid-top">
+            <span class="ai-grid-num">— Experiment 07</span>
+            <span class="ai-grid-arrow">↗</span>
+          </div>
+          <div class="ai-grid-info">
+            <div class="ai-grid-title">Neon Dreams</div>
+            <div class="ai-grid-tool">Midjourney · Pika</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ai-grid-item" data-type="video" data-src="videos/ai-08.mp4">
+        <span class="ai-grid-label">08</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="videos/ai-08.mp4" type="video/mp4">
+        </video>
+        <div class="ai-grid-overlay">
+          <div class="ai-grid-top">
+            <span class="ai-grid-num">— Experiment 08</span>
+            <span class="ai-grid-arrow">↗</span>
+          </div>
+          <div class="ai-grid-info">
+            <div class="ai-grid-title">Abstract Flow</div>
+            <div class="ai-grid-tool">Luma · Krea</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
   <!-- SECCIÓN FINAL -->
   <section class="may-like-section">
     <h3 class="section-subtitle">— You may also like</h3>
     <div class="may-like-grid">
-      <a href="#" class="may-like-item">
-        <span class="may-like-item-text">A.I.</span>
-        <span class="may-like-item-year">2026</span>
-      </a>
       <a href="#" class="may-like-item">
         <span class="may-like-item-text">Motion Ads</span>
         <span class="may-like-item-year">2024</span>
@@ -1028,6 +1437,10 @@
       </a>
       <a href="#" class="may-like-item">
         <span class="may-like-item-text">SRAX Brand</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Editorial</span>
         <span class="may-like-item-year">2024</span>
       </a>
     </div>
@@ -1053,7 +1466,8 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.project-item[data-src]').forEach(item => {
+  // Aplica el comportamiento de modal a items normales y a items de AI
+  document.querySelectorAll('.project-item[data-src], .ai-hero[data-src], .ai-grid-item[data-src]').forEach(item => {
     item.addEventListener('click', () => {
       const type = item.dataset.type;
       const src = item.dataset.src;
