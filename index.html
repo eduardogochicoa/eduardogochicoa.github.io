@@ -240,7 +240,7 @@
     color: var(--text-dim);
   }
   
-  /* GRID Social Media — composición editorial mejorada */
+  /* GRID Social Media — composición editorial con proporciones reales */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -255,21 +255,24 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  /* Composición rítmica: alternancia visual */
-  .row-1-a { grid-column: span 5; aspect-ratio: 4 / 5; }
-  .row-1-b { grid-column: span 7; aspect-ratio: 16 / 11; }
+  /* PROPORCIONES REALES POR VIDEO */
+  /* Cuadrado 1:1 — 4 columnas */
+  .ratio-1x1 { grid-column: span 4; aspect-ratio: 1 / 1; }
   
-  .row-2-a { grid-column: span 8; aspect-ratio: 16 / 9; }
-  .row-2-b { grid-column: span 4; aspect-ratio: 1 / 1; }
+  /* Vertical 9:16 (story) — 3 columnas para que no quede gigante */
+  .ratio-9x16 { grid-column: span 3; aspect-ratio: 9 / 16; }
   
-  .row-3-a { grid-column: span 4; aspect-ratio: 3 / 4; }
-  .row-3-b { grid-column: span 4; aspect-ratio: 3 / 4; }
-  .row-3-c { grid-column: span 4; aspect-ratio: 3 / 4; }
+  /* Vertical 4:5 (post) — 4 columnas */
+  .ratio-4x5 { grid-column: span 4; aspect-ratio: 4 / 5; }
   
-  .row-4-a { grid-column: span 7; aspect-ratio: 16 / 11; }
-  .row-4-b { grid-column: span 5; aspect-ratio: 4 / 5; }
+  /* Cuadrado destacado más grande — 6 columnas */
+  .ratio-1x1-big { grid-column: span 6; aspect-ratio: 1 / 1; }
   
-  .row-5-full { grid-column: span 12; aspect-ratio: 21 / 9; }
+  /* Imagen cuadrada — 4 columnas */
+  .ratio-img { grid-column: span 4; aspect-ratio: 1 / 1; }
+  
+  /* Imagen ancha — 6 columnas */
+  .ratio-img-wide { grid-column: span 6; aspect-ratio: 4 / 3; }
   
   .project-item:hover {
     transform: translateY(-4px);
@@ -848,10 +851,11 @@
     .hero { padding: 140px 30px 80px; }
     main { padding: 0 30px 80px; }
     .projects-grid { gap: 16px; }
-    .row-1-a, .row-1-b, .row-2-a, .row-2-b,
-    .row-4-a, .row-4-b { grid-column: span 12; }
-    .row-3-a, .row-3-b, .row-3-c { grid-column: span 6; }
-    .row-5-full { grid-column: span 12; aspect-ratio: 16/9; }
+    .ratio-1x1, .ratio-img { grid-column: span 6; }
+    .ratio-9x16 { grid-column: span 6; }
+    .ratio-4x5 { grid-column: span 6; }
+    .ratio-1x1-big { grid-column: span 12; }
+    .ratio-img-wide { grid-column: span 12; }
     .about-section { grid-template-columns: 1fr; gap: 30px; }
     .about-label { position: static; }
     .about-label-title { font-size: 32px; }
@@ -874,8 +878,11 @@
     main { padding: 0 20px 60px; }
     .hero-meta { gap: 25px; }
     .projects-grid { grid-template-columns: 1fr; }
-    .project-item { grid-column: span 1 !important; aspect-ratio: 1 / 1 !important; }
-    .row-3-a, .row-3-b, .row-3-c { aspect-ratio: 3/4 !important; }
+    .project-item { grid-column: span 1 !important; }
+    .ratio-1x1, .ratio-img, .ratio-1x1-big { aspect-ratio: 1/1 !important; }
+    .ratio-9x16 { aspect-ratio: 9/16 !important; }
+    .ratio-4x5 { aspect-ratio: 4/5 !important; }
+    .ratio-img-wide { aspect-ratio: 4/3 !important; }
     .may-like-grid { grid-template-columns: 1fr; }
     nav ul { gap: 14px; }
     nav a { font-size: 10px; letter-spacing: 1px; }
@@ -952,8 +959,15 @@
   
   <div class="projects-grid">
     
-    <!-- Fila 1: vertical + horizontal -->
-    <div class="project-item row-1-a" data-type="video" data-src="videos/proyecto-01.mp4">
+    <!-- ============================================ -->
+    <!-- FILA 1: dos verticales 9:16 + un cuadrado    -->
+    <!-- (3 + 3 + 4 = 10 cols → centrado visualmente) -->
+    <!-- Mejor: cuadrado grande + dos verticales      -->
+    <!-- (6 + 3 + 3 = 12)                             -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-01 (1:1) destacado grande -->
+    <div class="project-item ratio-1x1-big" data-type="video" data-src="videos/proyecto-01.mp4">
       <span class="project-label">01</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-01.mp4" type="video/mp4">
@@ -970,79 +984,170 @@
       </div>
     </div>
     
-    <div class="project-item row-1-b" data-type="video" data-src="videos/proyecto-02.mp4">
+    <!-- proyecto-03 (9:16) -->
+    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-03.mp4">
       <span class="project-label">02</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-02.mp4" type="video/mp4">
+        <source src="videos/proyecto-03.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
         <span class="project-number">— Project 02</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Brand Reel Series</div>
-            <div class="project-desc">Branding · Reels</div>
+            <div class="project-title">Story Series</div>
+            <div class="project-desc">Vertical Content</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- Fila 2: horizontal grande + imagen cuadrada -->
-    <div class="project-item row-2-a" data-type="video" data-src="videos/proyecto-03.mp4">
+    <!-- proyecto-04 (9:16) -->
+    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-04.mp4">
       <span class="project-label">03</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-03.mp4" type="video/mp4">
+        <source src="videos/proyecto-04.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
         <span class="project-number">— Project 03</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Motion Graphics</div>
-            <div class="project-desc">2D Animation</div>
+            <div class="project-title">Reels Story</div>
+            <div class="project-desc">TikTok · Reels</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <div class="project-item row-2-b" data-type="image" data-src="images/imagen-01.png">
+    <!-- ============================================ -->
+    <!-- FILA 2: tres cuadrados (4+4+4=12)            -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-02 (1:1) -->
+    <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-02.mp4">
       <span class="project-label">04</span>
-      <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-02.mp4" type="video/mp4">
+      </video>
       <div class="project-overlay">
         <span class="project-number">— Project 04</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Editorial Print</div>
-            <div class="project-desc">Editorial Design</div>
+            <div class="project-title">Brand Post</div>
+            <div class="project-desc">Feed Content</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- Fila 3: tres verticales -->
-    <div class="project-item row-3-a" data-type="video" data-src="videos/proyecto-04.mp4">
+    <!-- proyecto-05 (1:1) -->
+    <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-05.mp4">
       <span class="project-label">05</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-04.mp4" type="video/mp4">
+        <source src="videos/proyecto-05.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
         <span class="project-number">— Project 05</span>
         <div class="project-info">
           <div>
             <div class="project-title">Product Launch</div>
-            <div class="project-desc">Digital Launch</div>
+            <div class="project-desc">Square Post</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <div class="project-item row-3-b" data-type="image" data-src="images/imagen-02.png">
+    <!-- proyecto-08 (1:1) -->
+    <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-08.mp4">
       <span class="project-label">06</span>
-      <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-08.mp4" type="video/mp4">
+      </video>
       <div class="project-overlay">
         <span class="project-number">— Project 06</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Motion Loop</div>
+            <div class="project-desc">Animation</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- FILA 3: imagen ancha + vertical 9:16         -->
+    <!-- 6 + 3 = 9 — completamos con imagen cuadrada  -->
+    <!-- Mejor: 4:5 + 9:16 + imagen 1:1               -->
+    <!-- ============================================ -->
+    
+    <!-- proyecto-06 (4:5) -->
+    <div class="project-item ratio-4x5" data-type="video" data-src="videos/proyecto-06.mp4">
+      <span class="project-label">07</span>
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-06.mp4" type="video/mp4">
+      </video>
+      <div class="project-overlay">
+        <span class="project-number">— Project 07</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Feed Series</div>
+            <div class="project-desc">Portrait Format</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- proyecto-07 (9:16) -->
+    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-07.mp4">
+      <span class="project-label">08</span>
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-07.mp4" type="video/mp4">
+      </video>
+      <div class="project-overlay">
+        <span class="project-number">— Project 08</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Vertical Reel</div>
+            <div class="project-desc">Stories Format</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- imagen-01 (1:1) - relleno de fila -->
+    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-01.png">
+      <span class="project-label">09</span>
+      <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
+      <div class="project-overlay">
+        <span class="project-number">— Project 09</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Editorial</div>
+            <div class="project-desc">Static Design</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- FILA 4: imagen ancha + imagen cuadrada       -->
+    <!-- 6 + 4 = 10 — agregamos vertical para 12      -->
+    <!-- Mejor: 2 imágenes 6+6                        -->
+    <!-- ============================================ -->
+    
+    <!-- imagen-02 ancha 6 columnas -->
+    <div class="project-item ratio-img-wide" data-type="image" data-src="images/imagen-02.png">
+      <span class="project-label">10</span>
+      <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
+      <div class="project-overlay">
+        <span class="project-number">— Project 10</span>
         <div class="project-info">
           <div>
             <div class="project-title">Visual Identity</div>
@@ -1053,86 +1158,16 @@
       </div>
     </div>
     
-    <div class="project-item row-3-c" data-type="video" data-src="videos/proyecto-05.mp4">
-      <span class="project-label">07</span>
-      <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-05.mp4" type="video/mp4">
-      </video>
-      <div class="project-overlay">
-        <span class="project-number">— Project 07</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">TikTok Content</div>
-            <div class="project-desc">Viral Strategy</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Fila 4: horizontal grande + vertical -->
-    <div class="project-item row-4-a" data-type="video" data-src="videos/proyecto-06.mp4">
-      <span class="project-label">08</span>
-      <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-06.mp4" type="video/mp4">
-      </video>
-      <div class="project-overlay">
-        <span class="project-number">— Project 08</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">Reels Series</div>
-            <div class="project-desc">Advertising</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="project-item row-4-b" data-type="image" data-src="images/imagen-03.png">
-      <span class="project-label">09</span>
-      <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
-      <div class="project-overlay">
-        <span class="project-number">— Project 09</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">Graphic Design</div>
-            <div class="project-desc">Print · Digital</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Fila 5: banner ancho -->
-    <div class="project-item row-5-full" data-type="video" data-src="videos/proyecto-07.mp4">
-      <span class="project-label">10</span>
-      <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-07.mp4" type="video/mp4">
-      </video>
-      <div class="project-overlay">
-        <span class="project-number">— Project 10</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">Multi-Brand Campaign</div>
-            <div class="project-desc">360° Strategy</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Fila 6: dos horizontales medias -->
-    <div class="project-item row-1-b" data-type="video" data-src="videos/proyecto-08.mp4">
+    <!-- imagen-03 ancha 6 columnas -->
+    <div class="project-item ratio-img-wide" data-type="image" data-src="images/imagen-03.png">
       <span class="project-label">11</span>
-      <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-08.mp4" type="video/mp4">
-      </video>
+      <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
       <div class="project-overlay">
         <span class="project-number">— Project 11</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Story Templates</div>
-            <div class="project-desc">Graphic System</div>
+            <div class="project-title">Graphic System</div>
+            <div class="project-desc">Print · Digital</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
