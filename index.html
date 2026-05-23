@@ -30,7 +30,6 @@
     overflow-x: hidden;
   }
   
-  /* HEADER */
   header {
     position: fixed;
     top: 0;
@@ -117,7 +116,6 @@
   
   nav a:hover::after { width: 100%; }
   
-  /* Botón menú hamburguesa (oculto en desktop) */
   .menu-toggle {
     display: none;
     background: none;
@@ -136,19 +134,10 @@
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  .menu-toggle.active span:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
-  }
+  .menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
   
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
-  }
-  
-  /* HERO */
   .hero {
     max-width: 1400px;
     margin: 0 auto;
@@ -208,10 +197,7 @@
     flex-wrap: wrap;
   }
   
-  .hero-meta-item {
-    display: flex;
-    flex-direction: column;
-  }
+  .hero-meta-item { display: flex; flex-direction: column; }
   
   .hero-meta-label {
     font-size: 10px;
@@ -227,7 +213,6 @@
     font-weight: 400;
   }
   
-  /* MAIN */
   main {
     max-width: 1400px;
     margin: 0 auto;
@@ -243,11 +228,7 @@
     border-bottom: 1px solid var(--border);
   }
   
-  .section-header-left {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .section-header-left { display: flex; flex-direction: column; gap: 8px; }
   
   .section-number {
     font-family: var(--serif);
@@ -271,7 +252,6 @@
     color: var(--text-dim);
   }
   
-  /* GRID Social Media — composición editorial con proporciones reales */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -286,29 +266,14 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  /* PROPORCIONES REALES POR VIDEO */
-  /* Cuadrado 1:1 — 4 columnas */
   .ratio-1x1 { grid-column: span 4; aspect-ratio: 1 / 1; }
-  
-  /* Vertical 9:16 (story) — 3 columnas para que no quede gigante */
   .ratio-9x16 { grid-column: span 3; aspect-ratio: 9 / 16; }
-  
-  /* Vertical 4:5 (post) — 4 columnas */
   .ratio-4x5 { grid-column: span 4; aspect-ratio: 4 / 5; }
-  
-  /* Cuadrado destacado más grande — 6 columnas */
   .ratio-1x1-big { grid-column: span 6; aspect-ratio: 1 / 1; }
-  
-  /* Imagen cuadrada — 4 columnas */
   .ratio-img { grid-column: span 4; aspect-ratio: 1 / 1; }
-  
-  /* Imagen ancha — 6 columnas */
   .ratio-img-wide { grid-column: span 6; aspect-ratio: 4 / 3; }
-  
-  /* Horizontal 16:9 — 6 columnas */
   .ratio-16x9 { grid-column: span 6; aspect-ratio: 16 / 9; }
   
-  /* Badge "Made with A.I." */
   .ai-badge {
     position: absolute;
     top: 18px;
@@ -336,9 +301,7 @@
     font-size: 10px;
   }
   
-  .project-item:hover {
-    transform: translateY(-4px);
-  }
+  .project-item:hover { transform: translateY(-4px); }
   
   .project-video,
   .project-image {
@@ -369,9 +332,7 @@
     background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.65) 100%);
   }
   
-  .project-item:hover .project-overlay {
-    opacity: 1;
-  }
+  .project-item:hover .project-overlay { opacity: 1; }
   
   .project-number {
     font-family: var(--serif);
@@ -429,7 +390,6 @@
     opacity: 0.9;
   }
   
-  /* SECCIÓN ABOUT */
   .about-section {
     margin-top: 140px;
     padding-top: 80px;
@@ -470,9 +430,7 @@
     font-weight: 300;
   }
   
-  .about-content p {
-    margin-bottom: 24px;
-  }
+  .about-content p { margin-bottom: 24px; }
   
   .about-content strong {
     font-weight: 500;
@@ -481,7 +439,54 @@
     font-family: var(--serif);
   }
   
-  /* SECCIÓN A.I. — Showcase cinematográfico */
+  .brand-animation-section {
+    margin-top: 140px;
+    padding-top: 80px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .vimeo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+  
+  .vimeo-featured { grid-column: span 3; }
+  .vimeo-regular { grid-column: span 2; }
+  
+  .vimeo-item {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-alt);
+    overflow: hidden;
+  }
+  
+  .vimeo-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  
+  .vimeo-caption {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  
+  .vimeo-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .vimeo-year {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+  
   .ai-section {
     margin-top: 140px;
     padding-top: 80px;
@@ -497,7 +502,6 @@
     font-weight: 300;
   }
   
-  /* Hero video destacado — 16:9 cinematográfico */
   .ai-hero {
     position: relative;
     width: 100%;
@@ -565,9 +569,7 @@
     transition: transform 0.5s ease;
   }
   
-  .ai-hero:hover .ai-hero-bottom {
-    transform: translateY(-6px);
-  }
+  .ai-hero:hover .ai-hero-bottom { transform: translateY(-6px); }
   
   .ai-hero-title {
     font-family: var(--serif);
@@ -599,7 +601,6 @@
     opacity: 1;
   }
   
-  /* Etiqueta del divisor antes de la galería */
   .ai-gallery-label {
     display: flex;
     align-items: center;
@@ -607,11 +608,7 @@
     margin-bottom: 30px;
   }
   
-  .ai-gallery-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .ai-gallery-line { flex: 1; height: 1px; background: var(--border); }
   
   .ai-gallery-text {
     font-size: 11px;
@@ -621,7 +618,6 @@
     font-weight: 500;
   }
   
-  /* Grid de galería - todos 16:9 */
   .ai-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -687,9 +683,7 @@
     opacity: 0.7;
   }
   
-  .ai-grid-info {
-    width: 100%;
-  }
+  .ai-grid-info { width: 100%; }
   
   .ai-grid-title {
     font-family: var(--serif);
@@ -723,55 +717,7 @@
     letter-spacing: 1px;
     opacity: 0.85;
   }
-  .brand-animation-section {
-    margin-top: 140px;
-    padding-top: 80px;
-    border-top: 1px solid var(--border);
-  }
   
-  .vimeo-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 24px;
-  }
-  
-  .vimeo-featured { grid-column: span 3; }
-  .vimeo-regular { grid-column: span 2; }
-  
-  .vimeo-item {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    background: var(--bg-alt);
-    overflow: hidden;
-  }
-  
-  .vimeo-item iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
-  
-  .vimeo-caption {
-    margin-top: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-  
-  .vimeo-title {
-    font-family: var(--serif);
-    font-size: 16px;
-    font-weight: 400;
-  }
-  
-  .vimeo-year {
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 1px;
-  }
-  
-  /* MODAL */
   .video-modal {
     position: fixed;
     inset: 0;
@@ -821,7 +767,6 @@
   
   .close-modal:hover { opacity: 1; border-color: white; }
   
-  /* SECCIÓN FINAL */
   .may-like-section {
     margin-top: 140px;
     padding-top: 60px;
@@ -869,7 +814,6 @@
     letter-spacing: 1px;
   }
   
-  /* FOOTER */
   footer {
     padding: 50px 60px;
     border-top: 1px solid var(--border);
@@ -883,10 +827,7 @@
     gap: 20px;
   }
   
-  .footer-social {
-    display: flex;
-    gap: 30px;
-  }
+  .footer-social { display: flex; gap: 30px; }
   
   .footer-social a {
     color: var(--text-dim);
@@ -907,14 +848,10 @@
     font-size: 13px;
   }
   
-  /* RESPONSIVE */
   @media (max-width: 1000px) {
     header { padding: 18px 30px; }
-    
-    /* Mostrar menú hamburguesa */
     .menu-toggle { display: block; }
     
-    /* Esconder el menú normal y convertirlo en overlay full screen */
     nav {
       position: fixed;
       top: 0;
@@ -933,10 +870,7 @@
       z-index: 1001;
     }
     
-    nav.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    nav.active { opacity: 1; visibility: visible; }
     
     nav ul {
       flex-direction: column;
@@ -977,10 +911,7 @@
   @media (max-width: 600px) {
     header { padding: 14px 20px; }
     .logo-img { height: 36px; }
-    
-    /* Ocultar texto del logo en móvil (el SVG ya tiene el nombre) */
     .logo-text { display: none; }
-    
     .hero { padding: 120px 20px 60px; }
     main { padding: 0 20px 60px; }
     .hero-meta { gap: 25px; }
@@ -1031,7 +962,6 @@
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">
     <div class="hero-eyebrow-line"></div>
@@ -1062,7 +992,6 @@
 
 <main id="work">
   
-  <!-- SECCIÓN SOCIAL MEDIA -->
   <div class="section-header">
     <div class="section-header-left">
       <span class="section-number">— Selected Work 01</span>
@@ -1073,14 +1002,6 @@
   
   <div class="projects-grid">
     
-    <!-- ============================================ -->
-    <!-- FILA 1: dos verticales 9:16 + un cuadrado    -->
-    <!-- (3 + 3 + 4 = 10 cols → centrado visualmente) -->
-    <!-- Mejor: cuadrado grande + dos verticales      -->
-    <!-- (6 + 3 + 3 = 12)                             -->
-    <!-- ============================================ -->
-    
-    <!-- proyecto-01 (1:1) destacado grande -->
     <div class="project-item ratio-1x1-big" data-type="video" data-src="videos/proyecto-01.mp4">
       <span class="project-label">01</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1098,7 +1019,6 @@
       </div>
     </div>
     
-    <!-- proyecto-03 (9:16) -->
     <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-03.mp4">
       <span class="project-label">02</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1116,7 +1036,6 @@
       </div>
     </div>
     
-    <!-- proyecto-04 (9:16) -->
     <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-04.mp4">
       <span class="project-label">03</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1134,11 +1053,6 @@
       </div>
     </div>
     
-    <!-- ============================================ -->
-    <!-- FILA 2: tres cuadrados (4+4+4=12)            -->
-    <!-- ============================================ -->
-    
-    <!-- proyecto-02 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-02.mp4">
       <span class="project-label">04</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1156,7 +1070,6 @@
       </div>
     </div>
     
-    <!-- proyecto-05 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-05.mp4">
       <span class="project-label">05</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1174,7 +1087,6 @@
       </div>
     </div>
     
-    <!-- proyecto-08 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-08.mp4">
       <span class="project-label">06</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1192,12 +1104,6 @@
       </div>
     </div>
     
-    <!-- ============================================ -->
-    <!-- FILA 3: 4:5 + 9:16 (proyecto-06 + 07)        -->
-    <!-- AQUÍ irán los nuevos videos con IA           -->
-    <!-- ============================================ -->
-    
-    <!-- proyecto-06 (4:5) -->
     <div class="project-item ratio-4x5" data-type="video" data-src="videos/proyecto-06.mp4">
       <span class="project-label">07</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1215,7 +1121,6 @@
       </div>
     </div>
     
-    <!-- proyecto-07 (9:16) -->
     <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-07.mp4">
       <span class="project-label">08</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1233,13 +1138,6 @@
       </div>
     </div>
     
-    <!-- ============================================ -->
-    <!-- FILA AI: 3 videos hechos con apoyo de IA     -->
-    <!-- proyecto-09 (16:9) + proyecto-10 (16:9)      -->
-    <!-- y debajo proyecto-11 (9:16) acompañado       -->
-    <!-- ============================================ -->
-    
-    <!-- proyecto-09 (16:9) Made with A.I. -->
     <div class="project-item ratio-16x9" data-type="video" data-src="videos/proyecto-09.mp4">
       <span class="project-label">09</span>
       <span class="ai-badge">Made with A.I.</span>
@@ -1258,7 +1156,6 @@
       </div>
     </div>
     
-    <!-- proyecto-10 (16:9) Made with A.I. -->
     <div class="project-item ratio-16x9" data-type="video" data-src="videos/proyecto-10.mp4">
       <span class="project-label">10</span>
       <span class="ai-badge">Made with A.I.</span>
@@ -1277,39 +1174,24 @@
       </div>
     </div>
     
-    <!-- ============================================ -->
-    <!-- FILA: proyecto-11 (9:16) Made with A.I.      -->
-    <!-- Centrado con dos espacios laterales          -->
-    <!-- ============================================ -->
-    
-    <!-- proyecto-11 (9:16) Made with A.I. -->
-    <div class="project-item ratio-9x16" style="grid-column-start: 5;" data-type="video" data-src="videos/proyecto-11.mp4">
+    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-01.png">
       <span class="project-label">11</span>
-      <span class="ai-badge">Made with A.I.</span>
-      <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-11.mp4" type="video/mp4">
-      </video>
+      <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
       <div class="project-overlay">
-        <span class="project-number">— Project 11 · A.I.</span>
+        <span class="project-number">— Project 11</span>
         <div class="project-info">
           <div>
-            <div class="project-title">AI Vertical Reel</div>
-            <div class="project-desc">Generative · Stories</div>
+            <div class="project-title">Brand Identity</div>
+            <div class="project-desc">Visual System</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- ============================================ -->
-    <!-- FILA FINAL: Las 3 imágenes en una sola fila  -->
-    <!-- (misma marca - 4+4+4 = 12 columnas)          -->
-    <!-- ============================================ -->
-    
-    <!-- imagen-01 -->
-    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-01.png">
+    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-02.png">
       <span class="project-label">12</span>
-      <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
+      <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
       <div class="project-overlay">
         <span class="project-number">— Project 12</span>
         <div class="project-info">
@@ -1322,10 +1204,9 @@
       </div>
     </div>
     
-    <!-- imagen-02 -->
-    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-02.png">
+    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-03.png">
       <span class="project-label">13</span>
-      <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
+      <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
       <div class="project-overlay">
         <span class="project-number">— Project 13</span>
         <div class="project-info">
@@ -1338,25 +1219,8 @@
       </div>
     </div>
     
-    <!-- imagen-03 -->
-    <div class="project-item ratio-img" data-type="image" data-src="images/imagen-03.png">
-      <span class="project-label">14</span>
-      <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
-      <div class="project-overlay">
-        <span class="project-number">— Project 14</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">Brand Identity</div>
-            <div class="project-desc">Visual System</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
-    
   </div>
   
-  <!-- SECCIÓN ABOUT -->
   <section id="about" class="about-section">
     <div class="about-label">
       <span class="about-label-num">— 02</span>
@@ -1375,50 +1239,40 @@
     </div>
   </section>
   
-  <!-- SECCIÓN BRAND ANIMATION (Vimeo) -->
   <section id="brand-animation" class="brand-animation-section">
     <div class="section-header">
       <div class="section-header-left">
         <span class="section-number">— Selected Work 03</span>
         <h2 class="section-title">Brand Animation</h2>
       </div>
-      <span class="section-count">6 / Reels</span>
+      <span class="section-count">5 / Reels</span>
     </div>
     
     <div class="vimeo-grid">
       
-      <!-- Featured: 2 videos grandes arriba -->
       <div class="vimeo-featured">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/1179090531" 
-                  allow="autoplay; fullscreen; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/1179090531" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
-          <span class="vimeo-title">Uber Soccer</span>
+          <span class="vimeo-title">Uber Eats</span>
           <span class="vimeo-year">2025</span>
         </div>
       </div>
       
       <div class="vimeo-featured">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/1181323472" 
-                  allow="autoplay; fullscreen; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/1181323472" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
-          <span class="vimeo-title">Uber Stadium</span>
+          <span class="vimeo-title">Uber Eats Live</span>
           <span class="vimeo-year">2025</span>
         </div>
       </div>
-      
-
       
       <div class="vimeo-regular">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/859255686" 
-                  allow="autoplay; fullscreen; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/859255686" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Pop Tarts</span>
@@ -1428,9 +1282,7 @@
       
       <div class="vimeo-regular">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/880368199" 
-                  allow="autoplay; fullscreen; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/880368199" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
           <span class="vimeo-title">Pringles Control</span>
@@ -1438,15 +1290,12 @@
         </div>
       </div>
       
-      <!-- Video 6 en placeholder: ocupa 2 columnas centrado en su fila -->
-      <div class="vimeo-regular" style="grid-column-start: 3;">
+      <div class="vimeo-regular">
         <div class="vimeo-item">
-          <iframe src="https://player.vimeo.com/video/560683479" 
-                  allow="autoplay; fullscreen; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/560683479" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="vimeo-caption">
-          <span class="vimeo-title">Pringles Gaming/span>
+          <span class="vimeo-title">Pringles Gaming</span>
           <span class="vimeo-year">2021</span>
         </div>
       </div>
@@ -1454,7 +1303,6 @@
     </div>
   </section>
   
-  <!-- SECCIÓN A.I. -->
   <section id="ai" class="ai-section">
     <div class="section-header">
       <div class="section-header-left">
@@ -1468,7 +1316,6 @@
       Exploring the intersection of artificial intelligence and visual storytelling. A collection of experimental pieces created with generative AI tools, pushing the boundaries between human creativity and machine learning.
     </p>
     
-    <!-- HERO video destacado 16:9 -->
     <div class="ai-hero" data-type="video" data-src="videos/ai-01.mp4">
       <video autoplay muted loop playsinline preload="metadata">
         <source src="videos/ai-01.mp4" type="video/mp4">
@@ -1488,13 +1335,11 @@
       </div>
     </div>
     
-    <!-- Divisor de galería -->
     <div class="ai-gallery-label">
       <span class="ai-gallery-text">— More experiments</span>
       <div class="ai-gallery-line"></div>
     </div>
     
-    <!-- Grid 3x con todos los videos en 16:9 -->
     <div class="ai-grid">
       
       <div class="ai-grid-item" data-type="video" data-src="videos/ai-02.mp4">
@@ -1619,7 +1464,36 @@
     </div>
   </section>
   
-
+  <section class="may-like-section">
+    <h3 class="section-subtitle">— You may also like</h3>
+    <div class="may-like-grid">
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Motion Ads</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Branding</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">2D · 3D Animations</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Explainer Videos</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">SRAX Brand</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+      <a href="#" class="may-like-item">
+        <span class="may-like-item-text">Editorial</span>
+        <span class="may-like-item-year">2024</span>
+      </a>
+    </div>
+  </section>
+</main>
 
 <div class="video-modal" id="videoModal">
   <div class="video-modal-content">
@@ -1640,7 +1514,6 @@
 </footer>
 
 <script>
-  // Aplica el comportamiento de modal a items normales y a items de AI
   document.querySelectorAll('.project-item[data-src], .ai-hero[data-src], .ai-grid-item[data-src]').forEach(item => {
     item.addEventListener('click', () => {
       const type = item.dataset.type;
@@ -1673,8 +1546,6 @@
     if (e.key === 'Escape') closeMedia();
   });
   
-  // Smooth scroll para los links del menú
-  // Menú hamburguesa móvil
   const menuToggle = document.getElementById('menuToggle');
   const mainNav = document.getElementById('mainNav');
   
@@ -1684,13 +1555,11 @@
     document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
   });
   
-  // Cerrar menú al hacer click en un enlace
   document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       
-      // Cerrar menú móvil si está abierto
       menuToggle.classList.remove('active');
       mainNav.classList.remove('active');
       document.body.style.overflow = '';
