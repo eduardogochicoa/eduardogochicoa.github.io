@@ -252,6 +252,7 @@
     color: var(--text-dim);
   }
   
+  /* GRID PRINCIPAL - 12 columnas */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -266,13 +267,13 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  .ratio-1x1 { grid-column: span 4; aspect-ratio: 1 / 1; }
-  .ratio-9x16 { grid-column: span 3; aspect-ratio: 9 / 16; }
-  .ratio-4x5 { grid-column: span 4; aspect-ratio: 4 / 5; }
-  .ratio-1x1-big { grid-column: span 6; aspect-ratio: 1 / 1; }
-  .ratio-img { grid-column: span 4; aspect-ratio: 1 / 1; }
-  .ratio-img-wide { grid-column: span 6; aspect-ratio: 4 / 3; }
-  .ratio-16x9 { grid-column: span 6; aspect-ratio: 16 / 9; }
+  /* PROPORCIONES - todas suman 12 cols por fila */
+  .ratio-1x1-big { grid-column: span 6; aspect-ratio: 1 / 1; }   /* cuadrado grande */
+  .ratio-1x1 { grid-column: span 4; aspect-ratio: 1 / 1; }       /* cuadrado: 3 × 4 = 12 */
+  .ratio-9x16 { grid-column: span 3; aspect-ratio: 9 / 16; }     /* vertical: 4 × 3 = 12 */
+  .ratio-4x5 { grid-column: span 6; aspect-ratio: 4 / 5; }       /* vertical post: 2 × 6 = 12 */
+  .ratio-16x9 { grid-column: span 6; aspect-ratio: 16 / 9; }     /* horizontal: 2 × 6 = 12 */
+  .ratio-img { grid-column: span 4; aspect-ratio: 1 / 1; }       /* imagen: 3 × 4 = 12 */
   
   .ai-badge {
     position: absolute;
@@ -894,7 +895,6 @@
     .ratio-9x16 { grid-column: span 6; }
     .ratio-4x5 { grid-column: span 6; }
     .ratio-1x1-big { grid-column: span 12; }
-    .ratio-img-wide { grid-column: span 12; }
     .ratio-16x9 { grid-column: span 12; }
     .about-section { grid-template-columns: 1fr; gap: 30px; }
     .about-label { position: static; }
@@ -920,7 +920,6 @@
     .ratio-1x1, .ratio-img, .ratio-1x1-big { aspect-ratio: 1/1 !important; }
     .ratio-9x16 { aspect-ratio: 9/16 !important; grid-column: span 1 !important; }
     .ratio-4x5 { aspect-ratio: 4/5 !important; }
-    .ratio-img-wide { aspect-ratio: 4/3 !important; }
     .ratio-16x9 { aspect-ratio: 16/9 !important; }
     .may-like-grid { grid-template-columns: 1fr; }
     nav a { font-size: 20px; }
@@ -1002,6 +1001,10 @@
   
   <div class="projects-grid">
     
+    <!-- ============================================= -->
+    <!-- FILA 1: cuadrado grande (6) + 4:5 (6) = 12   -->
+    <!-- ============================================= -->
+    
     <!-- 01 - proyecto-01 (1:1) GRANDE -->
     <div class="project-item ratio-1x1-big" data-type="video" data-src="videos/proyecto-01.mp4">
       <span class="project-label">01</span>
@@ -1020,50 +1023,36 @@
       </div>
     </div>
     
-    <!-- 02 - proyecto-03 (9:16) -->
-    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-03.mp4">
+    <!-- 02 - proyecto-06 (4:5) -->
+    <div class="project-item ratio-4x5" data-type="video" data-src="videos/proyecto-06.mp4">
       <span class="project-label">02</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-03.mp4" type="video/mp4">
+        <source src="videos/proyecto-06.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
         <span class="project-number">— Project 02</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Story Series</div>
-            <div class="project-desc">Vertical Content</div>
+            <div class="project-title">Feed Series</div>
+            <div class="project-desc">Portrait Format</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
       </div>
     </div>
     
-    <!-- 03 - proyecto-04 (9:16) -->
-    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-04.mp4">
-      <span class="project-label">03</span>
-      <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-04.mp4" type="video/mp4">
-      </video>
-      <div class="project-overlay">
-        <span class="project-number">— Project 03</span>
-        <div class="project-info">
-          <div>
-            <div class="project-title">Reels Story</div>
-            <div class="project-desc">TikTok · Reels</div>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-    </div>
+    <!-- ============================================= -->
+    <!-- FILA 2: 3 cuadrados (4+4+4 = 12)              -->
+    <!-- ============================================= -->
     
-    <!-- 04 - proyecto-02 (1:1) -->
+    <!-- 03 - proyecto-02 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-02.mp4">
-      <span class="project-label">04</span>
+      <span class="project-label">03</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-02.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Project 04</span>
+        <span class="project-number">— Project 03</span>
         <div class="project-info">
           <div>
             <div class="project-title">Brand Post</div>
@@ -1074,14 +1063,14 @@
       </div>
     </div>
     
-    <!-- 05 - proyecto-05 (1:1) -->
+    <!-- 04 - proyecto-05 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-05.mp4">
-      <span class="project-label">05</span>
+      <span class="project-label">04</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-05.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Project 05</span>
+        <span class="project-number">— Project 04</span>
         <div class="project-info">
           <div>
             <div class="project-title">Product Launch</div>
@@ -1092,14 +1081,14 @@
       </div>
     </div>
     
-    <!-- 06 - proyecto-08 (1:1) -->
+    <!-- 05 - proyecto-08 (1:1) -->
     <div class="project-item ratio-1x1" data-type="video" data-src="videos/proyecto-08.mp4">
-      <span class="project-label">06</span>
+      <span class="project-label">05</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-08.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
-        <span class="project-number">— Project 06</span>
+        <span class="project-number">— Project 05</span>
         <div class="project-info">
           <div>
             <div class="project-title">Motion Loop</div>
@@ -1110,18 +1099,40 @@
       </div>
     </div>
     
-    <!-- 07 - proyecto-06 (4:5) -->
-    <div class="project-item ratio-4x5" data-type="video" data-src="videos/proyecto-06.mp4">
+    <!-- ============================================= -->
+    <!-- FILA 3: 4 VERTICALES 9:16 EN LÍNEA (3+3+3+3) -->
+    <!-- ============================================= -->
+    
+    <!-- 06 - proyecto-03 (9:16) -->
+    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-03.mp4">
+      <span class="project-label">06</span>
+      <video class="project-video" autoplay muted loop playsinline preload="metadata">
+        <source src="videos/proyecto-03.mp4" type="video/mp4">
+      </video>
+      <div class="project-overlay">
+        <span class="project-number">— Project 06</span>
+        <div class="project-info">
+          <div>
+            <div class="project-title">Story Series</div>
+            <div class="project-desc">Vertical Content</div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 07 - proyecto-04 (9:16) -->
+    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-04.mp4">
       <span class="project-label">07</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/proyecto-06.mp4" type="video/mp4">
+        <source src="videos/proyecto-04.mp4" type="video/mp4">
       </video>
       <div class="project-overlay">
         <span class="project-number">— Project 07</span>
         <div class="project-info">
           <div>
-            <div class="project-title">Feed Series</div>
-            <div class="project-desc">Portrait Format</div>
+            <div class="project-title">Reels Story</div>
+            <div class="project-desc">TikTok · Reels</div>
           </div>
           <span class="project-arrow">↗</span>
         </div>
@@ -1146,7 +1157,7 @@
       </div>
     </div>
     
-    <!-- 09 - proyecto-11 (9:16) NUEVO VIDEO VERTICAL -->
+    <!-- 09 - proyecto-11 (9:16) NUEVO -->
     <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-11.mp4">
       <span class="project-label">09</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
@@ -1164,8 +1175,13 @@
       </div>
     </div>
     
-    <!-- 10 - proyecto-12 (9:16) NUEVO VIDEO VERTICAL -->
-    <div class="project-item ratio-9x16" data-type="video" data-src="videos/proyecto-12.mp4">
+    <!-- ============================================= -->
+    <!-- FILA 4: 1 vertical sobrante + 2 A.I. (no encaja, lo movemos a fila propia con espacio centrado) -->
+    <!-- Solución: proyecto-12 ocupa 12 columnas con grid-column: 5/span 4 (centrado) -->
+    <!-- ============================================= -->
+    
+    <!-- 10 - proyecto-12 (9:16) NUEVO - centrado -->
+    <div class="project-item" style="grid-column: 5 / span 4; aspect-ratio: 9/16;" data-type="video" data-src="videos/proyecto-12.mp4">
       <span class="project-label">10</span>
       <video class="project-video" autoplay muted loop playsinline preload="metadata">
         <source src="videos/proyecto-12.mp4" type="video/mp4">
@@ -1181,6 +1197,10 @@
         </div>
       </div>
     </div>
+    
+    <!-- ============================================= -->
+    <!-- FILA 5: 2 videos A.I. 16:9 (6+6=12)            -->
+    <!-- ============================================= -->
     
     <!-- 11 - proyecto-09 (16:9) MADE WITH A.I. -->
     <div class="project-item ratio-16x9" data-type="video" data-src="videos/proyecto-09.mp4">
@@ -1220,7 +1240,11 @@
       </div>
     </div>
     
-    <!-- 13 - imagen-01 (1:1) -->
+    <!-- ============================================= -->
+    <!-- FILA 6: 3 imágenes (4+4+4=12)                  -->
+    <!-- ============================================= -->
+    
+    <!-- 13 - imagen-01 -->
     <div class="project-item ratio-img" data-type="image" data-src="images/imagen-01.png">
       <span class="project-label">13</span>
       <img class="project-image" src="images/imagen-01.png" alt="Imagen 01">
@@ -1236,7 +1260,7 @@
       </div>
     </div>
     
-    <!-- 14 - imagen-02 (1:1) -->
+    <!-- 14 - imagen-02 -->
     <div class="project-item ratio-img" data-type="image" data-src="images/imagen-02.png">
       <span class="project-label">14</span>
       <img class="project-image" src="images/imagen-02.png" alt="Imagen 02">
@@ -1252,7 +1276,7 @@
       </div>
     </div>
     
-    <!-- 15 - imagen-03 (1:1) -->
+    <!-- 15 - imagen-03 -->
     <div class="project-item ratio-img" data-type="image" data-src="images/imagen-03.png">
       <span class="project-label">15</span>
       <img class="project-image" src="images/imagen-03.png" alt="Imagen 03">
